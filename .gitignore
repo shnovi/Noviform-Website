@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+data/firecrawl/
+.claude/settings.local.json
+
+# Large local artifacts — keep out of the repo / deploy
+index.zip
+.vercel/
+.DS_Store

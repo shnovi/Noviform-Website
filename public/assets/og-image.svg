@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:hsl(220,18%,7%);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:hsl(220,15%,11%);stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glowGold" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" style="stop-color:hsla(35,75%,55%,0.12);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:hsla(35,75%,55%,0);stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="glowTeal" cx="15%" cy="85%" r="45%">
+      <stop offset="0%" style="stop-color:hsla(182,70%,48%,0.08);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:hsla(182,70%,48%,0);stop-opacity:1" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
+  <rect width="1200" height="630" fill="url(#glowGold)" />
+  <rect width="1200" height="630" fill="url(#glowTeal)" />
+
+  <!-- Border frame -->
+  <rect x="40" y="40" width="1120" height="550" rx="16" ry="16"
+        fill="none" stroke="hsla(210,15%,95%,0.06)" stroke-width="1" />
+
+  <!-- Logo mark — geometric N -->
+  <g transform="translate(80, 80)">
+    <rect width="52" height="52" rx="10" fill="hsl(35,75%,55%)" opacity="0.15"/>
+    <text x="26" y="38" font-family="system-ui,sans-serif" font-size="28" font-weight="700"
+          fill="hsl(35,75%,55%)" text-anchor="middle">N</text>
+  </g>
+
+  <!-- Brand name -->
+  <text x="148" y="118" font-family="system-ui,sans-serif" font-size="28" font-weight="700"
+        fill="hsl(210,15%,95%)" letter-spacing="3">NOVIFORM<tspan fill="hsl(35,75%,55%)" font-weight="500">.ai</tspan></text>
+
+  <!-- Divider -->
+  <line x1="80" y1="160" x2="400" y2="160" stroke="hsla(210,15%,95%,0.08)" stroke-width="1"/>
+
+  <!-- Main headline -->
+  <text x="80" y="270" font-family="system-ui,sans-serif" font-size="72" font-weight="700"
+        fill="hsl(210,15%,95%)" letter-spacing="-1">Less Theatre.</text>
+  <text x="80" y="360" font-family="system-ui,sans-serif" font-size="72" font-weight="700"
+        fill="hsl(35,75%,55%)" letter-spacing="-1">More Outcomes.</text>
+
+  <!-- Subheading -->
+  <text x="80" y="430" font-family="system-ui,sans-serif" font-size="26" font-weight="400"
+        fill="hsl(215,10%,65%)">Enterprise AI Strategy &amp; Automation for Banks and Insurers</text>
+
+  <!-- Bottom bar -->
+  <rect x="40" y="540" width="1120" height="1" fill="hsla(210,15%,95%,0.06)" />
+
+  <!-- URL tag -->
+  <text x="80" y="585" font-family="system-ui,sans-serif" font-size="20" font-weight="400"
+        fill="hsl(215,10%,45%)">www.noviform.ai</text>
+
+  <!-- Right pill tag -->
+  <rect x="960" y="558" width="200" height="36" rx="18"
+        fill="hsla(35,75%,55%,0.12)" stroke="hsla(35,75%,55%,0.3)" stroke-width="1"/>
+  <text x="1060" y="581" font-family="system-ui,sans-serif" font-size="14" font-weight="600"
+        fill="hsl(35,75%,55%)" text-anchor="middle" letter-spacing="1">UK ENTERPRISE AI</text>
+</svg>

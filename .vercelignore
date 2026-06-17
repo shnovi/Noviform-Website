@@ -1,0 +1,7 @@
+# Keep the Vercel deploy lean — exclude things the build doesn't need
+index.zip
+data/
+scripts/
+AI_HANDOFF.md
+IMPROVEMENTS.md
+*.zip

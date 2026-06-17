@@ -1,0 +1,46 @@
+/* ---------------------------------------------------------------
+   Animations Utility Styles (2026 visual language)
+   --------------------------------------------------------------- */
+
+/* Fade In */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s forwards ease-out;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Slide Up */
+.slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.8s forwards cubic-bezier(0.25, 1, 0.5, 1);
+}
+@keyframes slideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pulse (used for subtle attention) */
+.pulse {
+  animation: pulse 2s infinite ease-in-out;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* Glass Glow (used on hover) */
+.glass-glow {
+  transition: box-shadow var(--transition-smooth);
+  box-shadow: 0 0 20px var(--accent-gold-glow);
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in, .slide-up, .pulse {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
