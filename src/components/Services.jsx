@@ -1,30 +1,62 @@
 import React from 'react';
 
 export default function Services() {
-  const stages = [
+  const mot = {
+    num: "01",
+    name: "The Organisational AI MOT",
+    front: "Your organisation tested against our 12-point framework. Where AI and automation pay, and what is in the way.",
+    timeline: "2 weeks · Fixed scope",
+    back: ["A scored report across six areas of your organisation", "A ranked shortlist of fixes with the numbers attached", "A clear go or no-go on each"],
+    commitment: "About half a day of your team's time plus four to six interviews. We only recommend what pays for itself within twelve months."
+  };
+
+  const training = [
     {
-      num: "01",
-      name: "AI & Automation Readiness",
-      front: "Where AI pays off, and if your foundations can take it.",
-      timeline: "2 to 3 weeks",
-      back: ["Ranked use-case shortlist", "Readiness score: data, governance, skills", "A clear go / no-go"]
-    },
-    {
+      key: "t1",
       num: "02",
-      name: "AI Operating Model",
-      front: "Governance, guardrails and decision-rights. Not build scoping.",
-      timeline: "2 to 4 weeks",
-      back: ["Target operating model", "Approval & prioritisation gates", "Guardrails and controls"]
+      name: "AI 101, The Foundations Day",
+      front: "Your whole team working safely and usefully with AI, in one day, on your real tasks and your real policies.",
+      timeline: "One day · Whole team",
+      back: ["Hands-on skills practised on your own work, not demos", "Guardrails everyone understands", "A shortlist of uses your teams wrote themselves"]
     },
     {
+      key: "t2",
       num: "03",
+      name: "AI 102, Role Deep Dives",
+      front: "Each team goes deeper on the work they actually do, and leaves with it working.",
+      timeline: "Half a day per team · After 101",
+      back: ["Role-specific AI workflows, live", "An automation shortlist per team", "Before-and-after numbers"]
+    },
+    {
+      key: "t3",
+      num: "04",
+      name: "AI for Leaders & Boards",
+      front: "The decisions only leadership can take: policy, risk appetite, licensing and approval routes.",
+      timeline: "Half a day · SLT and board",
+      back: ["Acceptable-use policy and risk matrix templates, shaped in the room", "A licensing position agreed or scheduled with an owner", "An agreed route for approving new AI ideas"]
+    }
+  ];
+
+  const run = [
+    {
+      key: "r1",
+      num: "05",
+      name: "AI Assurance",
+      front: "Is this AI tool safe to switch on? Answered the same way every time, for every tool.",
+      timeline: "3 to 6 week set-up, then ongoing",
+      back: ["Every tool tested against seven areas, from data to law", "A light route for low-risk tools, deep review for the few", "A register and playbook your own team runs"]
+    },
+    {
+      key: "r2",
+      num: "06",
       name: "Automation & Agent Build",
       front: "Agents, copilots and automations, shipped into live workflows.",
       timeline: "Scoped",
       back: ["Working agents & automations, live", "Adopted by the team", "Built in sprints, not a sandbox demo"]
     },
     {
-      num: "04",
+      key: "r3",
+      num: "07",
       name: "Managed AI Operations",
       front: "We run it, hold the controls, and prove the benefits.",
       timeline: "Monthly",
@@ -34,11 +66,11 @@ export default function Services() {
 
   const support = [
     {
-      key: "bc",
-      name: "Business Case & Benefits",
-      front: "Tie AI spend to a return you can defend.",
-      meta: "Plugs into any stage",
-      back: ["Board-ready business case", "Benefits-realisation framework", "ROI tracked against baseline"]
+      key: "om",
+      name: "AI Operating Model",
+      front: "Governance, guardrails and decision-rights. Not build scoping.",
+      meta: "2 to 4 weeks",
+      back: ["Target operating model", "Approval & prioritisation gates", "Guardrails and controls"]
     },
     {
       key: "hc",
@@ -50,13 +82,53 @@ export default function Services() {
   ];
 
   const [flipped, setFlipped] = React.useState({});
-  const toggle = (i) => setFlipped((p) => ({ ...p, [i]: !p[i] }));
-  const onKey = (e, i) => {
+  const toggle = (k) => setFlipped((p) => ({ ...p, [k]: !p[k] }));
+  const onKey = (e, k) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      toggle(i);
+      toggle(k);
     }
   };
+
+  const renderFlipCard = (s, extraClass = '') => (
+    <div className={`stage-flip${extraClass}${flipped[s.key] ? ' is-flipped' : ''}`} key={s.key}>
+      <div
+        className="stage-inner"
+        role="button"
+        tabIndex={0}
+        aria-label={`${s.name}. Activate to flip and see what you walk away with.`}
+        onClick={() => toggle(s.key)}
+        onKeyDown={(e) => onKey(e, s.key)}
+      >
+        <div className="stage-face stage-front">
+          <div className="stage-top">
+            {s.num
+              ? <span className="stage-num">{s.num}</span>
+              : <span className="support-name">{s.name}</span>}
+            <svg className="flip-hint" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg>
+          </div>
+          {s.num && <h3 className="stage-name">{s.name}</h3>}
+          <p className="stage-front-desc">{s.front}</p>
+          <div className="stage-foot">
+            <span className="stage-time">{s.timeline || s.meta}</span>
+            <span className="flip-cue">
+              Deliverables
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg>
+            </span>
+          </div>
+        </div>
+        <div className="stage-face stage-back">
+          <div className="stage-top">
+            <span className="stage-back-h">You walk away with</span>
+            <svg className="flip-hint" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg>
+          </div>
+          <ul className="stage-back-list">
+            {s.back.map((b) => <li key={b}>{b}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <section id="services" className="services-section relative-container">
@@ -92,45 +164,39 @@ export default function Services() {
           <span className="lead-pill">Ongoing leadership</span>
         </div>
 
+        <div className="band-label reveal-on-scroll">
+          <span className="band-step">Find out where AI pays</span>
+        </div>
+
+        <div className="mot-card reveal-on-scroll">
+          <div className="mot-main">
+            <div className="mot-head">
+              <span className="mot-pill">Start here</span>
+              <span className="stage-num">{mot.num}</span>
+            </div>
+            <h3 className="mot-name">{mot.name}</h3>
+            <p className="stage-front-desc">{mot.front}</p>
+            <p className="mot-commit">{mot.commitment}</p>
+            <span className="stage-time">{mot.timeline}</span>
+          </div>
+          <div className="mot-deliver">
+            <span className="stage-back-h">You walk away with</span>
+            <ul className="stage-back-list">
+              {mot.back.map((b) => <li key={b}>{b}</li>)}
+            </ul>
+          </div>
+        </div>
+
+        <div className="band-label reveal-on-scroll" id="training">
+          <span className="band-step">Build the capability</span>
+          <span className="band-note">The training pathway. Take the modules in any order; the one dependency is 102 after 101.</span>
+        </div>
+
         <div className="journey">
-          {stages.map((s, i) => (
-            <React.Fragment key={s.num}>
-              <div className={`stage-flip${flipped[i] ? ' is-flipped' : ''}`}>
-                <div
-                  className="stage-inner"
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`${s.name}. Activate to flip and see what you walk away with.`}
-                  onClick={() => toggle(i)}
-                  onKeyDown={(e) => onKey(e, i)}
-                >
-                  <div className="stage-face stage-front">
-                    <div className="stage-top">
-                      <span className="stage-num">{s.num}</span>
-                      <svg className="flip-hint" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg>
-                    </div>
-                    <h3 className="stage-name">{s.name}</h3>
-                    <p className="stage-front-desc">{s.front}</p>
-                    <div className="stage-foot">
-                      <span className="stage-time">{s.timeline}</span>
-                      <span className="flip-cue">
-                        Deliverables
-                        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div className="stage-face stage-back">
-                    <div className="stage-top">
-                      <span className="stage-back-h">You walk away with</span>
-                      <svg className="flip-hint" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg>
-                    </div>
-                    <ul className="stage-back-list">
-                      {s.back.map((b) => <li key={b}>{b}</li>)}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              {i < stages.length - 1 && (
+          {training.map((s, i) => (
+            <React.Fragment key={s.key}>
+              {renderFlipCard(s)}
+              {i < training.length - 1 && (
                 <div className="journey-arrow" aria-hidden="true">
                   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
                 </div>
@@ -139,54 +205,27 @@ export default function Services() {
           ))}
         </div>
 
+        <div className="band-label reveal-on-scroll">
+          <span className="band-step">Keep it safe and keep it running</span>
+        </div>
+
+        <div className="journey journey-plain">
+          {run.map((s) => renderFlipCard(s))}
+        </div>
+
         <div className="accel-band reveal-on-scroll">
           <div className="accel-main">
             <span className="accel-pill">Express lane</span>
             <div className="accel-text">
               <span className="accel-name">90 Day Accelerator</span>
-              <span className="accel-sub">Readiness &rarr; build &rarr; proof of value, compressed into one quarter.</span>
+              <span className="accel-sub">MOT &rarr; build &rarr; proof of value, compressed into one quarter.</span>
             </div>
           </div>
           <span className="accel-time">12 weeks</span>
         </div>
 
         <div className="support-row reveal-on-scroll">
-          {support.map((s) => (
-            <div className={`stage-flip support-flip${flipped[s.key] ? ' is-flipped' : ''}`} key={s.key}>
-              <div
-                className="stage-inner"
-                role="button"
-                tabIndex={0}
-                aria-label={`${s.name}. Activate to flip and see what you walk away with.`}
-                onClick={() => toggle(s.key)}
-                onKeyDown={(e) => onKey(e, s.key)}
-              >
-                <div className="stage-face stage-front">
-                  <div className="stage-top">
-                    <span className="support-name">{s.name}</span>
-                    <svg className="flip-hint" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg>
-                  </div>
-                  <p className="stage-front-desc">{s.front}</p>
-                  <div className="stage-foot">
-                    <span className="stage-time">{s.meta}</span>
-                    <span className="flip-cue">
-                      Deliverables
-                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg>
-                    </span>
-                  </div>
-                </div>
-                <div className="stage-face stage-back">
-                  <div className="stage-top">
-                    <span className="stage-back-h">You walk away with</span>
-                    <svg className="flip-hint" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg>
-                  </div>
-                  <ul className="stage-back-list">
-                    {s.back.map((b) => <li key={b}>{b}</li>)}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          ))}
+          {support.map((s) => renderFlipCard(s, ' support-flip'))}
         </div>
 
         <div className="advisory-trust-seal reveal-on-scroll">
@@ -195,7 +234,7 @@ export default function Services() {
             <path d="m9 11 2 2 4-4"/>
           </svg>
           <span className="seal-text">
-            Most work starts as a sprint. We extend only when the work is earning its keep and adoption is real.
+            Most work starts as a sprint. We extend only when the work is earning its keep, and we only recommend what pays for itself within twelve months.
           </span>
         </div>
 
@@ -279,7 +318,7 @@ export default function Services() {
           border-radius: var(--border-radius-md);
           background-color: var(--bg-card);
           border: 2px solid var(--accent-gold);
-          margin-bottom: 1.5rem;
+          margin-bottom: 2rem;
         }
 
         .lead-band-main {
@@ -327,11 +366,105 @@ export default function Services() {
           white-space: nowrap;
         }
 
+        .band-label {
+          display: flex;
+          align-items: baseline;
+          gap: 0.9rem;
+          flex-wrap: wrap;
+          margin: 0 0 0.9rem 0.2rem;
+        }
+
+        .band-step {
+          font-family: var(--font-heading);
+          font-size: 0.8rem;
+          font-weight: 700;
+          letter-spacing: 0.09em;
+          text-transform: uppercase;
+          color: var(--accent-gold);
+        }
+
+        .band-note {
+          font-size: 0.85rem;
+          color: var(--text-secondary);
+        }
+
+        .mot-card {
+          display: flex;
+          gap: 2rem;
+          padding: 1.75rem 2rem;
+          border-radius: var(--border-radius-md);
+          background-color: var(--bg-card);
+          border: 2px solid var(--accent-gold);
+          margin-bottom: 2rem;
+        }
+
+        .mot-main {
+          flex: 1.3;
+          min-width: 0;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .mot-head {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 0.55rem;
+        }
+
+        .mot-pill {
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          color: hsl(220, 18%, 8%);
+          background-color: var(--accent-gold);
+          padding: 0.4rem 0.85rem;
+          border-radius: 50px;
+          white-space: nowrap;
+        }
+
+        .mot-name {
+          font-family: var(--font-heading);
+          font-size: 1.35rem;
+          font-weight: 700;
+          color: var(--text-primary);
+          line-height: 1.25;
+          margin-bottom: 0.5rem;
+        }
+
+        .mot-commit {
+          font-size: 0.85rem;
+          color: var(--text-secondary);
+          line-height: 1.55;
+          margin: 0.8rem 0;
+          padding-left: 0.85rem;
+          border-left: 2px solid var(--accent-gold);
+        }
+
+        .mot-card .stage-time {
+          margin-top: auto;
+        }
+
+        .mot-deliver {
+          flex: 1;
+          min-width: 0;
+          padding: 1.1rem 1.4rem;
+          border-radius: var(--border-radius-sm, 10px);
+          background-color: var(--bg-primary);
+          border: 1px solid var(--border-color);
+          align-self: center;
+        }
+
         .journey {
           display: flex;
           align-items: stretch;
           gap: 0.6rem;
-          margin-bottom: 1.5rem;
+          margin-bottom: 2rem;
+        }
+
+        .journey-plain {
+          gap: 1rem;
         }
 
         .stage-flip {
@@ -692,6 +825,13 @@ export default function Services() {
           .journey-arrow {
             display: none;
           }
+          .mot-card {
+            flex-direction: column;
+            gap: 1.25rem;
+          }
+          .mot-deliver {
+            align-self: stretch;
+          }
         }
 
         @media (max-width: 640px) {
@@ -710,6 +850,9 @@ export default function Services() {
           .advisory-trust-seal {
             border-radius: 16px;
             padding: 1rem 1.5rem;
+          }
+          .mot-card {
+            padding: 1.4rem 1.5rem;
           }
         }
 

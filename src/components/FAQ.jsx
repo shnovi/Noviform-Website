@@ -15,6 +15,14 @@ const faqs = [
     a: 'Most engagements start as a short sprint of two to four weeks. Our 90-day accelerator compresses readiness, build and proof of value into a single quarter, so you have working automation and measured benefits inside three months.'
   },
   {
+    q: 'Do you train teams as well as build for them?',
+    a: 'Yes. The training pathway runs from AI 101, a one-day foundations workshop for your whole team on your own tasks and policies, through AI 102 role deep dives, to a half-day briefing for leaders and boards covering policy, risk appetite and approval routes. Take the modules in any order; the one dependency is that 102 assumes 101 has happened.'
+  },
+  {
+    q: 'How do we know an AI tool is safe to switch on?',
+    a: 'That is exactly what our AI Assurance service answers. Every tool is tested against seven areas, from the data it touches to the law that applies, with a light route for low-risk tools and a deep review for the few that need it. Your own team runs it after handover, with the register, playbook and templates yours to keep.'
+  },
+  {
     q: 'Do you work in regulated or financial services?',
     a: 'Yes. Regulated, controls-heavy environments are where we do our best work. We treat risk, audit and compliance as design inputs from day one, across banking, insurance including the London Market, higher education and the third sector.'
   },
