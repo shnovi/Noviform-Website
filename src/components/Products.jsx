@@ -1,5 +1,4 @@
 import React from 'react'
-import operationsAgenticAi from '../assets/operations-agentic-ai.webp'
 
 export default function Products() {
   const steps = [
@@ -45,16 +44,73 @@ export default function Products() {
                 <span className="dot green"></span>
                 <span className="window-title">Noviform Operations Engine</span>
               </div>
-              <div className="dashboard-image-container">
-                <img
-                  src={operationsAgenticAi}
-                  alt="Agentic AI workflow network organising enterprise delivery signals inside a boardroom"
-                  className="dashboard-actual-img"
-                  width="1024"
-                  height="1024"
-                  loading="lazy"
-                  decoding="async"
-                />
+              <div className="ops-engine-panel">
+                <svg
+                  className="ops-engine-svg"
+                  viewBox="0 0 520 430"
+                  role="img"
+                  aria-label="The Noviform operations engine: many incoming signals pass through decision gates and come out as a few owned outcomes"
+                >
+                  {/* Column labels */}
+                  <text x="70" y="34" textAnchor="middle" className="ops-label">SIGNALS</text>
+                  <text x="260" y="34" textAnchor="middle" className="ops-label">DECISIONS</text>
+                  <text x="450" y="34" textAnchor="middle" className="ops-label">OUTCOMES</text>
+
+                  {/* Signal dots, left column */}
+                  <circle cx="70" cy="80" r="7" className="ops-signal" />
+                  <circle cx="70" cy="130" r="7" className="ops-signal" />
+                  <circle cx="70" cy="180" r="7" className="ops-signal" />
+                  <circle cx="70" cy="230" r="7" className="ops-signal dim" />
+                  <circle cx="70" cy="280" r="7" className="ops-signal" />
+                  <circle cx="70" cy="330" r="7" className="ops-signal dim" />
+                  <circle cx="70" cy="380" r="7" className="ops-signal" />
+
+                  {/* Flow lines: signals to gates */}
+                  <path d="M80 80 C 150 80, 150 120, 206 125" className="ops-line" />
+                  <path d="M80 130 C 140 130, 150 128, 206 130" className="ops-line" />
+                  <path d="M80 180 C 150 180, 150 140, 206 135" className="ops-line" />
+                  <path d="M80 230 C 150 230, 150 225, 206 228" className="ops-line faint" />
+                  <path d="M80 280 C 150 280, 150 235, 206 232" className="ops-line" />
+                  <path d="M80 330 C 150 330, 150 330, 206 330" className="ops-line faint" />
+                  <path d="M80 380 C 150 380, 150 338, 206 334" className="ops-line" />
+
+                  {/* Decision gates, middle column */}
+                  <g className="ops-gate">
+                    <rect x="210" y="102" width="100" height="56" rx="12" />
+                    <text x="260" y="136" textAnchor="middle" className="ops-gate-text">SCOPE</text>
+                  </g>
+                  <g className="ops-gate">
+                    <rect x="210" y="202" width="100" height="56" rx="12" />
+                    <text x="260" y="236" textAnchor="middle" className="ops-gate-text">OWNERS</text>
+                  </g>
+                  <g className="ops-gate">
+                    <rect x="210" y="302" width="100" height="56" rx="12" />
+                    <text x="260" y="336" textAnchor="middle" className="ops-gate-text">CONTROLS</text>
+                  </g>
+
+                  {/* Flow lines: gates to outcomes */}
+                  <path d="M314 130 C 370 130, 370 120, 406 118" className="ops-line gold" />
+                  <path d="M314 230 C 370 230, 370 220, 406 218" className="ops-line gold" />
+                  <path d="M314 330 C 370 330, 370 320, 406 318" className="ops-line gold" />
+
+                  {/* Outcomes, right column */}
+                  <g className="ops-outcome">
+                    <rect x="410" y="96" width="80" height="44" rx="10" />
+                    <path d="M432 118 l 8 8 l 16 -16" className="ops-tick" />
+                  </g>
+                  <g className="ops-outcome">
+                    <rect x="410" y="196" width="80" height="44" rx="10" />
+                    <path d="M432 218 l 8 8 l 16 -16" className="ops-tick" />
+                  </g>
+                  <g className="ops-outcome">
+                    <rect x="410" y="296" width="80" height="44" rx="10" />
+                    <path d="M432 318 l 8 8 l 16 -16" className="ops-tick" />
+                  </g>
+
+                  {/* The filtered-out signal: stopped at the gate, deliberately */}
+                  <path d="M335 385 h 60" className="ops-line stopped" />
+                  <text x="340" y="405" className="ops-stopped-note">not earning its keep · stopped</text>
+                </svg>
                 <div className="operations-overlay" aria-hidden="true">
                   <span>Controlled delivery</span>
                   <strong>Signals. Decisions. Outcomes.</strong>
@@ -219,47 +275,101 @@ export default function Products() {
           text-transform: uppercase;
         }
 
-        .dashboard-image-container {
-          padding: 10px;
-          background-color: var(--bg-secondary);
+        .ops-engine-panel {
           position: relative;
-          overflow: hidden;
+          background-color: var(--panel-dark);
           border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+          padding: 1.5rem 1.25rem 4.5rem;
         }
 
-        .dashboard-actual-img {
+        .ops-engine-svg {
           width: 100%;
           height: auto;
-          aspect-ratio: 1;
           display: block;
-          border-radius: calc(var(--border-radius-lg) - 8px);
-          object-fit: cover;
-          transform: scale(1.035);
-          transition: transform 0.6s ease;
         }
 
-        .dashboard-outer-frame:hover .dashboard-actual-img {
-          transform: scale(1.055);
+        .ops-label {
+          font-family: var(--font-heading);
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          fill: var(--accent-gold-bright);
+        }
+
+        .ops-signal {
+          fill: var(--accent-gold-bright);
+        }
+
+        .ops-signal.dim {
+          fill: none;
+          stroke: var(--panel-dark-muted);
+          stroke-width: 1.5;
+        }
+
+        .ops-line {
+          fill: none;
+          stroke: rgba(244, 237, 224, 0.35);
+          stroke-width: 1.5;
+        }
+
+        .ops-line.faint {
+          stroke: rgba(244, 237, 224, 0.14);
+          stroke-dasharray: 4 5;
+        }
+
+        .ops-line.gold {
+          stroke: var(--accent-gold-bright);
+          stroke-width: 2;
+        }
+
+        .ops-line.stopped {
+          stroke: rgba(244, 237, 224, 0.22);
+          stroke-dasharray: 4 5;
+        }
+
+        .ops-gate rect {
+          fill: none;
+          stroke: var(--accent-gold-bright);
+          stroke-width: 1.5;
+        }
+
+        .ops-gate-text {
+          font-family: var(--font-heading);
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          fill: var(--panel-dark-text);
+        }
+
+        .ops-outcome rect {
+          fill: var(--accent-gold-bright);
+        }
+
+        .ops-tick {
+          fill: none;
+          stroke: var(--panel-dark);
+          stroke-width: 3;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+        }
+
+        .ops-stopped-note {
+          font-family: var(--font-body);
+          font-size: 11px;
+          fill: var(--panel-dark-muted);
         }
 
         .operations-overlay {
           position: absolute;
           left: clamp(1.4rem, 4vw, 2.1rem);
-          bottom: clamp(1.4rem, 4vw, 2.1rem);
+          bottom: 1.3rem;
           max-width: min(78%, 360px);
-          padding: 0.85rem 1rem;
-          border-radius: var(--border-radius-md);
-          background-color: rgba(12, 14, 18, 0.76);
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          box-shadow: 0 16px 34px rgba(0, 0, 0, 0.26);
-          backdrop-filter: blur(12px) saturate(160%);
-          -webkit-backdrop-filter: blur(12px) saturate(160%);
         }
 
         .operations-overlay span {
           display: block;
-          margin-bottom: 0.25rem;
-          color: var(--accent-gold);
+          margin-bottom: 0.2rem;
+          color: var(--accent-gold-bright);
           font-size: 0.72rem;
           font-weight: 800;
           letter-spacing: 0.08em;
@@ -268,7 +378,7 @@ export default function Products() {
 
         .operations-overlay strong {
           display: block;
-          color: #fff;
+          color: var(--panel-dark-text);
           font-family: var(--font-heading);
           font-size: clamp(1rem, 2vw, 1.22rem);
           line-height: 1.25;
