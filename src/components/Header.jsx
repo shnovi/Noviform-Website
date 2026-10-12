@@ -2,17 +2,15 @@ import React, { useState, useEffect } from 'react'
 import logoUrl from '../assets/noviform-logo-sm.webp'
 
 export default function Header() {
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'dark'
-  })
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
 
+  // Single cream theme: pin data-theme to light so any stored preference renders identically
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
-  }, [theme])
+    document.documentElement.setAttribute('data-theme', 'light')
+    try { localStorage.setItem('theme', 'light') } catch (e) { /* storage unavailable */ }
+  }, [])
 
   // Scroll-spy: highlight the nav item for the section currently in view
   useEffect(() => {
@@ -53,10 +51,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const toggleTheme = () => {
-    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'))
-  }
-
   return (
     <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
       <a href="#main-content" className="skip-to-content">Skip to main content</a>
@@ -85,30 +79,8 @@ export default function Header() {
           </a>
         </nav>
 
-        {/* Actions (Theme & Menu Switcher) */}
+        {/* Actions (Menu Switcher) */}
         <div className="header-actions">
-          <button 
-            className="theme-toggle-btn" 
-            onClick={toggleTheme}
-            aria-label="Toggle Light/Dark Theme"
-          >
-            {theme === 'dark' ? (
-              /* Sun Icon for Light Mode */
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="4"/>
-                <path d="M12 2v2"/><path d="M12 20v2"/>
-                <path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/>
-                <path d="M2 12h2"/><path d="M20 12h2"/>
-                <path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
-              </svg>
-            ) : (
-              /* Moon Icon for Dark Mode */
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-              </svg>
-            )}
-          </button>
-
           <button
             className={`mobile-menu-trigger ${mobileMenuOpen ? 'open' : ''}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
