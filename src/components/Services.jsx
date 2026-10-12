@@ -1,134 +1,88 @@
 import React from 'react';
 
+const modules = [
+  {
+    id: 'mot',
+    num: '01',
+    short: 'AI MOT',
+    name: 'The Organisational AI MOT',
+    time: '2 weeks · Fixed scope · Start here',
+    line: 'Your organisation tested against our 12-point framework. Where AI and automation pay, and what is in the way.',
+    walkaway: ['A scored report across six areas of your organisation', 'A ranked shortlist of fixes with the numbers attached', 'A clear go or no-go on each']
+  },
+  {
+    id: 'ai101',
+    num: '02',
+    short: 'AI 101',
+    name: 'AI 101, The Foundations Day',
+    time: 'One day · Whole team',
+    line: 'Your whole team working safely and usefully with AI, in one day, on your real tasks and your real policies.',
+    walkaway: ['Hands-on skills practised on your own work, not demos', 'Guardrails everyone understands', 'A shortlist of uses your teams wrote themselves']
+  },
+  {
+    id: 'ai102',
+    num: '03',
+    short: 'AI 102',
+    name: 'AI 102, Role Deep Dives',
+    time: 'Half a day per team · After 101',
+    line: 'Each team goes deeper on the work they actually do, and leaves with it working.',
+    walkaway: ['Role-specific AI workflows, live', 'An automation shortlist per team', 'Before-and-after numbers']
+  },
+  {
+    id: 'leaders',
+    num: '04',
+    short: 'Leaders',
+    name: 'AI for Leaders & Boards',
+    time: 'Half a day · SLT and board',
+    line: 'The decisions only leadership can take: policy, risk appetite, licensing and approval routes.',
+    walkaway: ['Acceptable-use policy and risk matrix templates, shaped in the room', 'A licensing position agreed or scheduled with an owner', 'An agreed route for approving new AI ideas']
+  },
+  {
+    id: 'assurance',
+    num: '05',
+    short: 'Assurance',
+    name: 'AI Assurance',
+    time: '3 to 6 week set-up, then ongoing',
+    line: 'Is this AI tool safe to switch on? Answered the same way every time, for every tool.',
+    walkaway: ['Every tool tested against seven areas, from data to law', 'A light route for low-risk tools, deep review for the few', 'A register and playbook your own team runs']
+  },
+  {
+    id: 'build',
+    num: '06',
+    short: 'Build',
+    name: 'Automation & Agent Build',
+    time: 'Scoped',
+    line: 'Agents, copilots and automations, shipped into live workflows.',
+    walkaway: ['Working agents and automations, live', 'Adopted by the team', 'Built in sprints, not a sandbox demo']
+  },
+  {
+    id: 'managed',
+    num: '07',
+    short: 'Operations',
+    name: 'Managed AI Operations',
+    time: 'Monthly',
+    line: 'We run it, hold the controls, and prove the benefits.',
+    walkaway: ['Kept live and reliable', 'Guardrails held as models change', 'Issues flagged before they bite']
+  }
+];
+
 export default function Services() {
-  const mot = {
-    num: "01",
-    name: "The Organisational AI MOT",
-    front: "Your organisation tested against our 12-point framework. Where AI and automation pay, and what is in the way.",
-    timeline: "2 weeks · Fixed scope",
-    back: ["A scored report across six areas of your organisation", "A ranked shortlist of fixes with the numbers attached", "A clear go or no-go on each"],
-    commitment: "About half a day of your team's time plus four to six interviews. We only recommend what pays for itself within twelve months."
-  };
+  const [selected, setSelected] = React.useState(0);
+  const tabRefs = React.useRef([]);
 
-  const training = [
-    {
-      key: "t1",
-      num: "02",
-      name: "AI 101, The Foundations Day",
-      front: "Your whole team working safely and usefully with AI, in one day, on your real tasks and your real policies.",
-      timeline: "One day · Whole team",
-      back: ["Hands-on skills practised on your own work, not demos", "Guardrails everyone understands", "A shortlist of uses your teams wrote themselves"]
-    },
-    {
-      key: "t2",
-      num: "03",
-      name: "AI 102, Role Deep Dives",
-      front: "Each team goes deeper on the work they actually do, and leaves with it working.",
-      timeline: "Half a day per team · After 101",
-      back: ["Role-specific AI workflows, live", "An automation shortlist per team", "Before-and-after numbers"]
-    },
-    {
-      key: "t3",
-      num: "04",
-      name: "AI for Leaders & Boards",
-      front: "The decisions only leadership can take: policy, risk appetite, licensing and approval routes.",
-      timeline: "Half a day · SLT and board",
-      back: ["Acceptable-use policy and risk matrix templates, shaped in the room", "A licensing position agreed or scheduled with an owner", "An agreed route for approving new AI ideas"]
-    }
-  ];
-
-  const run = [
-    {
-      key: "r1",
-      num: "05",
-      name: "AI Assurance",
-      front: "Is this AI tool safe to switch on? Answered the same way every time, for every tool.",
-      timeline: "3 to 6 week set-up, then ongoing",
-      back: ["Every tool tested against seven areas, from data to law", "A light route for low-risk tools, deep review for the few", "A register and playbook your own team runs"]
-    },
-    {
-      key: "r2",
-      num: "06",
-      name: "Automation & Agent Build",
-      front: "Agents, copilots and automations, shipped into live workflows.",
-      timeline: "Scoped",
-      back: ["Working agents & automations, live", "Adopted by the team", "Built in sprints, not a sandbox demo"]
-    },
-    {
-      key: "r3",
-      num: "07",
-      name: "Managed AI Operations",
-      front: "We run it, hold the controls, and prove the benefits.",
-      timeline: "Monthly",
-      back: ["Kept live and reliable", "Guardrails held as models change", "Issues flagged before they bite"]
-    }
-  ];
-
-  const support = [
-    {
-      key: "om",
-      name: "AI Operating Model",
-      front: "Governance, guardrails and decision-rights. Not build scoping.",
-      meta: "2 to 4 weeks",
-      back: ["Target operating model", "Approval & prioritisation gates", "Guardrails and controls"]
-    },
-    {
-      key: "hc",
-      name: "Programme Health Check",
-      front: "Re-enter here if a programme stalls.",
-      meta: "10 to 15 days",
-      back: ["Why it stalled, honestly", "Prioritised recovery actions", "A plan to get moving again"]
-    }
-  ];
-
-  const [flipped, setFlipped] = React.useState({});
-  const toggle = (k) => setFlipped((p) => ({ ...p, [k]: !p[k] }));
-  const onKey = (e, k) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+  const onKeyNav = (e, i) => {
+    let next = null;
+    if (e.key === 'ArrowRight') next = (i + 1) % modules.length;
+    if (e.key === 'ArrowLeft') next = (i - 1 + modules.length) % modules.length;
+    if (e.key === 'Home') next = 0;
+    if (e.key === 'End') next = modules.length - 1;
+    if (next !== null) {
       e.preventDefault();
-      toggle(k);
+      setSelected(next);
+      const el = tabRefs.current[next];
+      if (el) el.focus();
     }
   };
-
-  const renderFlipCard = (s, extraClass = '') => (
-    <div className={`stage-flip${extraClass}${flipped[s.key] ? ' is-flipped' : ''}`} key={s.key}>
-      <div
-        className="stage-inner"
-        role="button"
-        tabIndex={0}
-        aria-label={`${s.name}. Activate to flip and see what you walk away with.`}
-        onClick={() => toggle(s.key)}
-        onKeyDown={(e) => onKey(e, s.key)}
-      >
-        <div className="stage-face stage-front">
-          <div className="stage-top">
-            {s.num
-              ? <span className="stage-num">{s.num}</span>
-              : <span className="support-name">{s.name}</span>}
-            <svg className="flip-hint" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg>
-          </div>
-          {s.num && <h3 className="stage-name">{s.name}</h3>}
-          <p className="stage-front-desc">{s.front}</p>
-          <div className="stage-foot">
-            <span className="stage-time">{s.timeline || s.meta}</span>
-            <span className="flip-cue">
-              Deliverables
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg>
-            </span>
-          </div>
-        </div>
-        <div className="stage-face stage-back">
-          <div className="stage-top">
-            <span className="stage-back-h">You walk away with</span>
-            <svg className="flip-hint" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg>
-          </div>
-          <ul className="stage-back-list">
-            {s.back.map((b) => <li key={b}>{b}</li>)}
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
 
   return (
     <section id="services" className="services-section relative-container">
@@ -140,13 +94,8 @@ export default function Services() {
             <span className="proof-highlight">impossible to argue with</span>.
           </h2>
           <p className="section-desc">
-            Noviform builds AI and automation into your real workflows and proves what it&rsquo;s saving. The business case, not the demo.
+            Noviform builds AI and automation into your real workflows and proves what it&rsquo;s saving. The business case, not the demo. Seven ways in, one console. Press a preset.
           </p>
-          <div className="delivery-strap" aria-label="Sprint first, Evidence Led, Built to Land">
-            <span>Sprint first</span><span className="strap-sep" aria-hidden="true">&middot;</span>
-            <span>Evidence Led</span><span className="strap-sep" aria-hidden="true">&middot;</span>
-            <span>Built to Land</span>
-          </div>
         </div>
 
         <div className="lead-band reveal-on-scroll">
@@ -164,53 +113,67 @@ export default function Services() {
           <span className="lead-pill">Ongoing leadership</span>
         </div>
 
-        <div className="band-label reveal-on-scroll">
-          <span className="band-step">Find out where AI pays</span>
-        </div>
-
-        <div className="mot-card reveal-on-scroll">
-          <div className="mot-main">
-            <div className="mot-head">
-              <span className="mot-pill">Start here</span>
-              <span className="stage-num">{mot.num}</span>
-            </div>
-            <h3 className="mot-name">{mot.name}</h3>
-            <p className="stage-front-desc">{mot.front}</p>
-            <p className="mot-commit">{mot.commitment}</p>
-            <span className="stage-time">{mot.timeline}</span>
+        <div className="service-console reveal-on-scroll">
+          <div className="console-strip">
+            <span className="console-title">Noviform Service Console</span>
+            <span className="console-lights" aria-hidden="true">
+              <span className="console-light"></span>
+              <span className="console-light"></span>
+              <span className="console-light on"></span>
+            </span>
           </div>
-          <div className="mot-deliver">
-            <span className="stage-back-h">You walk away with</span>
-            <ul className="stage-back-list">
-              {mot.back.map((b) => <li key={b}>{b}</li>)}
-            </ul>
-          </div>
-        </div>
 
-        <div className="band-label reveal-on-scroll" id="training">
-          <span className="band-step">Build the capability</span>
-          <span className="band-note">The training pathway. Take the modules in any order; the one dependency is 102 after 101.</span>
-        </div>
-
-        <div className="journey">
-          {training.map((s, i) => (
-            <React.Fragment key={s.key}>
-              {renderFlipCard(s)}
-              {i < training.length - 1 && (
-                <div className="journey-arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          <div className="console-display">
+            {modules.map((m, i) => (
+              <div
+                key={m.id}
+                id={`console-panel-${m.id}`}
+                role="tabpanel"
+                aria-labelledby={`console-tab-${m.id}`}
+                hidden={selected !== i}
+                className="console-panel"
+              >
+                <div className="console-panel-main">
+                  <span className="console-time">{m.time}</span>
+                  <h3 className="console-name">{m.name}</h3>
+                  <p className="console-line">{m.line}</p>
                 </div>
-              )}
-            </React.Fragment>
+                <div className="console-walkaway">
+                  <span className="console-walkaway-h">You walk away with</span>
+                  <ul className="console-walkaway-list">
+                    {m.walkaway.map((w) => <li key={w}>{w}</li>)}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="console-presets" role="tablist" aria-label="Noviform services">
+            {modules.map((m, i) => (
+              <button
+                key={m.id}
+                id={`console-tab-${m.id}`}
+                role="tab"
+                type="button"
+                aria-selected={selected === i}
+                aria-controls={`console-panel-${m.id}`}
+                tabIndex={selected === i ? 0 : -1}
+                ref={(el) => { tabRefs.current[i] = el; }}
+                className={`console-preset${selected === i ? ' pressed' : ''}`}
+                onClick={() => setSelected(i)}
+                onKeyDown={(e) => onKeyNav(e, i)}
+              >
+                <span className="preset-num">{m.num}</span>
+                <span className="preset-short">{m.short}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="console-index reveal-on-scroll" aria-hidden="true">
+          {modules.map((m) => (
+            <span key={m.id}><strong>{m.num}</strong> {m.id === 'mot' ? 'The AI MOT' : m.id === 'leaders' ? 'Leaders & Boards' : m.id === 'managed' ? 'Managed Operations' : m.short === 'Assurance' ? 'AI Assurance' : m.short}</span>
           ))}
-        </div>
-
-        <div className="band-label reveal-on-scroll">
-          <span className="band-step">Keep it safe and keep it running</span>
-        </div>
-
-        <div className="journey journey-plain">
-          {run.map((s) => renderFlipCard(s))}
         </div>
 
         <div className="accel-band reveal-on-scroll">
@@ -225,7 +188,20 @@ export default function Services() {
         </div>
 
         <div className="support-row reveal-on-scroll">
-          {support.map((s) => renderFlipCard(s, ' support-flip'))}
+          <div className="support-card">
+            <div className="support-top">
+              <span className="support-name">AI Operating Model</span>
+              <span className="support-meta">2 to 4 weeks</span>
+            </div>
+            <p className="support-desc">Governance, guardrails and decision-rights. Target operating model, approval and prioritisation gates, controls.</p>
+          </div>
+          <div className="support-card">
+            <div className="support-top">
+              <span className="support-name">Programme Health Check</span>
+              <span className="support-meta">10 to 15 days</span>
+            </div>
+            <p className="support-desc">Re-enter here if a programme stalls. Why it stalled, honestly, prioritised recovery actions and a plan to get moving again.</p>
+          </div>
         </div>
 
         <div className="advisory-trust-seal reveal-on-scroll">
@@ -262,7 +238,8 @@ export default function Services() {
       <style jsx="true">{`
         .services-section {
           padding: 80px 0;
-          background-color: var(--bg-secondary);
+          background-color: var(--bg-primary);
+          border-top: 2px solid var(--ink);
           transition: background-color 0.5s ease;
         }
 
@@ -281,32 +258,8 @@ export default function Services() {
         }
 
         .proof-highlight {
-          background-color: var(--accent-gold);
-          color: hsl(220, 18%, 8%);
-          padding: 0.05em 0.32em;
-          border-radius: 7px;
-          box-decoration-break: clone;
-          -webkit-box-decoration-break: clone;
-        }
-
-        .delivery-strap {
-          display: flex;
-          align-items: center;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 0.7rem;
-          margin-top: 1.5rem;
-          font-family: var(--font-heading);
-          font-size: 0.8rem;
-          font-weight: 600;
-          letter-spacing: 0.09em;
-          text-transform: uppercase;
-          color: var(--text-secondary);
-        }
-
-        .strap-sep {
-          color: var(--accent-gold);
-          font-weight: 700;
+          border-bottom: 4px solid var(--accent-gold);
+          padding-bottom: 0.05em;
         }
 
         .lead-band {
@@ -314,11 +267,12 @@ export default function Services() {
           align-items: center;
           justify-content: space-between;
           gap: 1.25rem;
-          padding: 1.2rem 1.75rem;
+          padding: 1.1rem 1.6rem;
           border-radius: var(--border-radius-md);
           background-color: var(--bg-card);
-          border: 2px solid var(--accent-gold);
-          margin-bottom: 2rem;
+          border: 1px solid var(--border-color);
+          border-left: 4px solid var(--accent-gold);
+          margin-bottom: 1.5rem;
         }
 
         .lead-band-main {
@@ -342,7 +296,7 @@ export default function Services() {
         .lead-name {
           font-family: var(--font-heading);
           font-weight: 700;
-          font-size: 1.1rem;
+          font-size: 1.05rem;
           color: var(--text-primary);
           line-height: 1.3;
         }
@@ -355,290 +309,231 @@ export default function Services() {
 
         .lead-pill {
           flex-shrink: 0;
-          font-size: 0.7rem;
+          font-size: 0.68rem;
           font-weight: 700;
-          letter-spacing: 0.05em;
+          letter-spacing: 0.08em;
           text-transform: uppercase;
-          color: hsl(220, 18%, 8%);
-          background-color: var(--accent-gold);
-          padding: 0.4rem 0.85rem;
+          color: var(--panel-dark-text);
+          background-color: var(--ink);
+          padding: 0.4rem 0.9rem;
           border-radius: 50px;
           white-space: nowrap;
         }
 
-        .band-label {
-          display: flex;
-          align-items: baseline;
-          gap: 0.9rem;
-          flex-wrap: wrap;
-          margin: 0 0 0.9rem 0.2rem;
-        }
-
-        .band-step {
-          font-family: var(--font-heading);
-          font-size: 0.8rem;
-          font-weight: 700;
-          letter-spacing: 0.09em;
-          text-transform: uppercase;
-          color: var(--accent-gold);
-        }
-
-        .band-note {
-          font-size: 0.85rem;
-          color: var(--text-secondary);
-        }
-
-        .mot-card {
-          display: flex;
-          gap: 2rem;
-          padding: 1.75rem 2rem;
-          border-radius: var(--border-radius-md);
+        .service-console {
           background-color: var(--bg-card);
-          border: 2px solid var(--accent-gold);
-          margin-bottom: 2rem;
+          border: 2px solid var(--ink);
+          border-radius: 20px;
+          box-shadow: 6px 6px 0 rgba(15, 17, 21, 0.14);
+          overflow: hidden;
+          margin-bottom: 1.1rem;
         }
 
-        .mot-main {
-          flex: 1.3;
-          min-width: 0;
-          display: flex;
-          flex-direction: column;
-        }
-
-        .mot-head {
+        .console-strip {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: 0.55rem;
+          gap: 1rem;
+          padding: 0.75rem 1.5rem;
+          border-bottom: 2px solid var(--ink);
+          background-color: var(--accent-gold-bright);
         }
 
-        .mot-pill {
-          font-size: 0.7rem;
-          font-weight: 700;
-          letter-spacing: 0.05em;
-          text-transform: uppercase;
-          color: hsl(220, 18%, 8%);
-          background-color: var(--accent-gold);
-          padding: 0.4rem 0.85rem;
-          border-radius: 50px;
-          white-space: nowrap;
-        }
-
-        .mot-name {
+        .console-title {
           font-family: var(--font-heading);
-          font-size: 1.35rem;
-          font-weight: 700;
-          color: var(--text-primary);
-          line-height: 1.25;
-          margin-bottom: 0.5rem;
-        }
-
-        .mot-commit {
+          font-weight: 800;
           font-size: 0.85rem;
-          color: var(--text-secondary);
-          line-height: 1.55;
-          margin: 0.8rem 0;
-          padding-left: 0.85rem;
-          border-left: 2px solid var(--accent-gold);
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--ink);
         }
 
-        .mot-card .stage-time {
-          margin-top: auto;
+        .console-lights {
+          display: inline-flex;
+          gap: 6px;
         }
 
-        .mot-deliver {
-          flex: 1;
-          min-width: 0;
-          padding: 1.1rem 1.4rem;
-          border-radius: var(--border-radius-sm, 10px);
-          background-color: var(--bg-primary);
-          border: 1px solid var(--border-color);
-          align-self: center;
+        .console-light {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          border: 1px solid var(--ink);
+          display: inline-block;
         }
 
-        .journey {
+        .console-light.on {
+          background-color: var(--ink);
+        }
+
+        .console-display {
+          background-color: var(--panel-dark);
+          padding: 1.75rem 2rem;
+          min-height: 215px;
           display: flex;
           align-items: stretch;
-          gap: 0.6rem;
-          margin-bottom: 2rem;
         }
 
-        .journey-plain {
-          gap: 1rem;
-        }
-
-        .stage-flip {
-          flex: 1;
-          min-width: 0;
-          perspective: 1200px;
-        }
-
-        .stage-inner {
-          position: relative;
+        .console-panel {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 2.25rem;
           width: 100%;
-          height: 266px;
-          transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-          transform-style: preserve-3d;
+        }
+
+        .console-panel[hidden] {
+          display: none;
+        }
+
+        .console-panel-main {
+          flex: 999 1 380px;
+          min-width: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 0.6rem;
+        }
+
+        .console-time {
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: var(--accent-gold-bright);
+        }
+
+        .console-name {
+          font-family: var(--font-heading);
+          font-weight: 700;
+          font-size: clamp(1.3rem, 2vw, 1.7rem);
+          color: var(--panel-dark-text);
+          line-height: 1.2;
+          margin: 0;
+        }
+
+        .console-line {
+          font-size: 0.95rem;
+          color: var(--panel-dark-muted);
+          max-width: 520px;
+          margin: 0;
+        }
+
+        .console-walkaway {
+          flex: 1 1 300px;
+          min-width: 0;
+          border-left: 1px solid rgba(244, 237, 224, 0.15);
+          padding-left: 1.75rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.55rem;
+        }
+
+        @media (max-width: 720px) {
+          .console-walkaway {
+            border-left: 0;
+            padding-left: 0;
+            border-top: 1px solid rgba(244, 237, 224, 0.15);
+            padding-top: 1rem;
+          }
+        }
+
+        .console-walkaway-h {
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: var(--accent-gold-bright);
+        }
+
+        .console-walkaway-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .console-walkaway-list li {
+          font-size: 0.9rem;
+          color: var(--panel-dark-text);
+          line-height: 1.4;
+          display: flex;
+          gap: 0.6rem;
+          align-items: flex-start;
+        }
+
+        .console-walkaway-list li::before {
+          content: "\\2192";
+          color: var(--accent-gold-bright);
+          font-weight: 700;
+          flex-shrink: 0;
+        }
+
+        .console-presets {
+          display: flex;
+          gap: 0.85rem;
+          padding: 1.3rem 1.5rem 1.5rem;
+          border-top: 2px solid var(--ink);
+          background-color: var(--bg-card);
+          flex-wrap: wrap;
+        }
+
+        .console-preset {
+          flex: 1;
+          min-width: 104px;
+          text-align: center;
+          padding: 0.75rem 0.5rem 0.6rem;
+          background-color: var(--bg-card);
+          color: var(--ink);
+          border: 2px solid var(--ink);
+          border-radius: 12px;
+          box-shadow: 0 4px 0 var(--ink);
           cursor: pointer;
-          border-radius: var(--border-radius-md);
+          transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+          font-family: var(--font-heading);
         }
 
-        .stage-flip.is-flipped .stage-inner {
-          transform: rotateY(180deg);
+        .console-preset:hover {
+          background-color: var(--bg-secondary);
         }
 
-        .stage-inner:focus-visible {
+        .console-preset:focus-visible {
           outline: 2px solid var(--accent-gold);
           outline-offset: 3px;
         }
 
-        .stage-face {
-          position: absolute;
-          inset: 0;
-          -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-          border-radius: var(--border-radius-md);
-          background-color: var(--bg-card);
-          border: 1px solid var(--border-color);
-          padding: 1.4rem 1.5rem;
-          display: flex;
-          flex-direction: column;
-          overflow: hidden;
-          transition: border-color 0.3s ease;
+        .console-preset.pressed {
+          background-color: var(--accent-gold-bright);
+          box-shadow: 0 1px 0 var(--ink);
+          transform: translateY(3px);
         }
 
-        .stage-flip {
-          transition: transform 0.3s ease;
+        .preset-num {
+          display: block;
+          font-weight: 800;
+          font-size: 1.05rem;
+          line-height: 1.2;
         }
 
-        @media (hover: hover) {
-          .stage-flip:not(.is-flipped):hover {
-            transform: translateY(-4px);
-          }
-        }
-
-        .stage-flip:hover .stage-face {
-          border-color: var(--accent-gold);
-        }
-
-        .stage-back {
-          transform: rotateY(180deg);
-        }
-
-        .stage-top {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-bottom: 0.55rem;
-        }
-
-        .stage-num {
-          font-family: var(--font-heading);
-          font-size: 1.85rem;
-          font-weight: 700;
-          color: var(--accent-gold);
-          line-height: 1;
-        }
-
-        .flip-hint {
-          color: var(--accent-gold);
-          opacity: 0.85;
-          flex-shrink: 0;
-        }
-
-        .stage-foot {
-          margin-top: auto;
-          padding-top: 0.7rem;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 0.75rem;
-        }
-
-        .flip-cue {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.3rem;
-          font-size: 0.72rem;
-          font-weight: 700;
-          letter-spacing: 0.04em;
-          text-transform: uppercase;
-          color: var(--accent-gold);
-          background-color: var(--accent-gold-glow);
-          padding: 0.28rem 0.6rem;
-          border-radius: 50px;
-          white-space: nowrap;
-          transition: background-color 0.25s ease, transform 0.25s ease;
-        }
-
-        .stage-flip:hover .flip-cue {
-          transform: translateX(2px);
-        }
-
-        .stage-name {
-          font-family: var(--font-heading);
-          font-size: 1.1rem;
-          font-weight: 700;
-          color: var(--text-primary);
-          line-height: 1.25;
-          margin-bottom: 0.5rem;
-        }
-
-        .stage-front-desc {
-          font-size: 0.9rem;
-          color: var(--text-secondary);
-          line-height: 1.5;
-        }
-
-        .stage-time {
-          font-size: 0.78rem;
+        .preset-short {
+          display: block;
           font-weight: 600;
-          letter-spacing: 0.02em;
-          color: var(--accent-gold);
+          font-size: 0.7rem;
+          line-height: 1.25;
         }
 
-        .stage-back-h {
-          font-size: 0.72rem;
+        .console-index {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem 1.75rem;
+          justify-content: center;
+          margin-bottom: 1.5rem;
+          font-size: 0.82rem;
+          color: var(--text-secondary);
+        }
+
+        .console-index strong {
+          color: var(--accent-gold);
           font-weight: 700;
-          letter-spacing: 0.05em;
-          text-transform: uppercase;
-          color: var(--accent-gold);
-        }
-
-        .stage-back-list {
-          list-style: none;
-          padding: 0;
-          margin: 0.7rem 0 0;
-          display: flex;
-          flex-direction: column;
-          gap: 0.6rem;
-        }
-
-        .stage-back-list li {
-          font-size: 0.9rem;
-          color: var(--text-primary);
-          line-height: 1.35;
-          display: flex;
-          gap: 0.55rem;
-          align-items: flex-start;
-        }
-
-        .stage-back-list li::before {
-          content: "";
-          width: 0.4rem;
-          height: 0.4rem;
-          border-radius: 50%;
-          background-color: var(--accent-gold);
-          margin-top: 0.42rem;
-          flex-shrink: 0;
-        }
-
-        .journey-arrow {
-          display: flex;
-          align-items: center;
-          color: var(--accent-gold);
-          opacity: 0.5;
-          flex-shrink: 0;
         }
 
         .accel-band {
@@ -646,12 +541,12 @@ export default function Services() {
           align-items: center;
           justify-content: space-between;
           gap: 1.25rem;
-          padding: 1.1rem 1.75rem;
+          padding: 1rem 1.6rem;
           border-radius: var(--border-radius-md);
           background-color: var(--bg-card);
           border: 1px solid var(--border-color);
           border-left: 4px solid var(--accent-gold);
-          margin-bottom: 2rem;
+          margin-bottom: 1.5rem;
         }
 
         .accel-main {
@@ -659,17 +554,19 @@ export default function Services() {
           align-items: center;
           gap: 1rem;
           min-width: 0;
+          flex-wrap: wrap;
         }
 
         .accel-pill {
           flex-shrink: 0;
-          font-size: 0.7rem;
+          font-size: 0.68rem;
           font-weight: 700;
-          letter-spacing: 0.05em;
+          letter-spacing: 0.08em;
           text-transform: uppercase;
-          color: var(--accent-gold);
-          background-color: var(--accent-gold-glow);
-          padding: 0.4rem 0.85rem;
+          color: var(--eyebrow);
+          background-color: var(--bg-primary);
+          border: 1px solid var(--border-color-hover);
+          padding: 0.35rem 0.8rem;
           border-radius: 50px;
           white-space: nowrap;
         }
@@ -683,7 +580,7 @@ export default function Services() {
         .accel-name {
           font-family: var(--font-heading);
           font-weight: 700;
-          font-size: 1.1rem;
+          font-size: 1.02rem;
           color: var(--text-primary);
           line-height: 1.3;
         }
@@ -698,25 +595,55 @@ export default function Services() {
           flex-shrink: 0;
           font-size: 0.82rem;
           font-weight: 600;
-          color: var(--accent-gold);
+          color: var(--eyebrow);
           white-space: nowrap;
         }
 
         .support-row {
-          display: flex;
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 1.25rem;
-          margin-bottom: 2.5rem;
+          margin-bottom: 2rem;
         }
 
-        .support-flip .stage-inner {
-          height: 200px;
+        .support-card {
+          background-color: var(--bg-card);
+          border: 1px solid var(--border-color);
+          border-radius: var(--border-radius-md);
+          padding: 1.3rem 1.5rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .support-top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
         }
 
         .support-name {
           font-family: var(--font-heading);
           font-weight: 700;
-          font-size: 1rem;
+          font-size: 1.02rem;
           color: var(--text-primary);
+        }
+
+        .support-meta {
+          font-size: 0.72rem;
+          font-weight: 600;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          color: var(--text-secondary);
+          white-space: nowrap;
+        }
+
+        .support-desc {
+          font-size: 0.9rem;
+          color: var(--text-secondary);
+          line-height: 1.55;
+          margin: 0;
         }
 
         .advisory-trust-seal {
@@ -724,13 +651,12 @@ export default function Services() {
           align-items: center;
           justify-content: center;
           gap: 0.75rem;
-          padding: 1.25rem 2.5rem;
+          padding: 1rem 2rem;
           border-radius: 100px;
-          background-color: var(--bg-primary);
+          background-color: var(--bg-card);
           border: 1px solid var(--border-color);
           max-width: max-content;
           margin: 0 auto 3rem;
-          box-shadow: var(--glass-shadow);
         }
 
         .seal-icon {
@@ -744,7 +670,7 @@ export default function Services() {
         }
 
         .micro-services {
-          padding-top: 1.5rem;
+          padding-top: 1rem;
         }
 
         .micro-cta {
@@ -793,19 +719,19 @@ export default function Services() {
         }
 
         .micro-contact-btn {
-          background-color: var(--accent-gold);
-          color: hsl(220, 18%, 8%);
+          background-color: var(--ink);
+          color: var(--panel-dark-text);
         }
 
         .micro-contact-btn:hover {
           transform: translateY(-2px);
-          filter: brightness(1.06);
+          background-color: hsl(220, 17%, 14%);
         }
 
         .micro-call-btn {
           background-color: transparent;
           color: var(--text-primary);
-          border: 1px solid var(--border-color-hover);
+          border: 1px solid var(--ink);
         }
 
         .micro-call-btn:hover {
@@ -814,29 +740,18 @@ export default function Services() {
           color: var(--accent-gold);
         }
 
-        @media (max-width: 980px) {
-          .journey {
-            flex-wrap: wrap;
-            gap: 1rem;
+        @media (max-width: 720px) {
+          .console-display {
+            padding: 1.4rem 1.3rem;
           }
-          .stage-flip {
-            flex: 1 1 calc(50% - 0.5rem);
+          .console-presets {
+            gap: 0.6rem;
           }
-          .journey-arrow {
-            display: none;
+          .console-preset {
+            min-width: calc(25% - 0.6rem);
           }
-          .mot-card {
-            flex-direction: column;
-            gap: 1.25rem;
-          }
-          .mot-deliver {
-            align-self: stretch;
-          }
-        }
-
-        @media (max-width: 640px) {
-          .stage-flip {
-            flex: 1 1 100%;
+          .support-row {
+            grid-template-columns: 1fr;
           }
           .lead-band,
           .accel-band {
@@ -844,20 +759,14 @@ export default function Services() {
             align-items: flex-start;
             gap: 0.85rem;
           }
-          .support-row {
-            flex-direction: column;
-          }
           .advisory-trust-seal {
             border-radius: 16px;
             padding: 1rem 1.5rem;
           }
-          .mot-card {
-            padding: 1.4rem 1.5rem;
-          }
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .stage-inner {
+          .console-preset {
             transition: none;
           }
         }

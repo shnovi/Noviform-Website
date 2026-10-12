@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import heroAgenticAi from '../assets/hero-agentic-ai.webp';
 
 const heroContainerVariants = {
   hidden: {},
@@ -12,16 +11,21 @@ const heroItemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
+const motAreas = [
+  { name: 'Operations', score: 3 },
+  { name: 'Revenue', score: 2 },
+  { name: 'Finance', score: 4 },
+  { name: 'Customer experience', score: 2 },
+  { name: 'People & knowledge', score: 3 },
+  { name: 'Data & systems', score: 1 },
+];
+
 export default function Hero() {
   return (
     <motion.section className="hero-section" variants={heroContainerVariants} initial="hidden" animate="visible">
-      <div className="hero-aurora" aria-hidden="true">
-        <span className="aurora-gold"></span>
-        <span className="aurora-teal"></span>
-      </div>
       <div className="hero-grid container">
         <div className="hero-content">
-          <motion.div className="section-tag animate-tag" variants={heroItemVariants}>AI &amp; Automation for Complex Organisations</motion.div>
+          <motion.div className="section-tag animate-tag hero-eyebrow" variants={heroItemVariants}>AI &amp; Automation for Complex Organisations</motion.div>
 
           <motion.h1 className="hero-headline" variants={heroItemVariants}>
             Less Theatre. <br />
@@ -39,14 +43,14 @@ export default function Hero() {
               href="https://calendly.com/asheikh-noviform/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-primary"
+              className="btn btn-hero-primary"
             >
               <span>Book a Call</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
               </svg>
             </a>
-            <a href="#services" className="btn btn-secondary">
+            <a href="#services" className="btn btn-hero-secondary">
               <span>See Services</span>
             </a>
           </div>
@@ -58,18 +62,28 @@ export default function Hero() {
 
         </div>
 
-        {/* Hero Right Visual Column */}
+        {/* Hero Right Visual Column: sample AI MOT scorecard */}
         <div className="hero-visual-wrapper reveal-on-scroll revealed">
-          <div className="image-frame-gold">
-            <img
-              src={heroAgenticAi}
-              alt="Noviform enterprise AI strategy and automation consulting visualisation for financial institutions"
-              className="hero-main-image"
-              width="896"
-              height="1200"
-              fetchpriority="high"
-              decoding="async"
-            />
+          <div className="mot-sample-card" role="img" aria-label="Illustrative sample of the Organisational AI MOT scorecard, six areas each rated out of five">
+            <div className="mot-sample-head">
+              <span className="mot-sample-title">The AI MOT</span>
+              <span className="mot-sample-pill">Sample</span>
+            </div>
+            <div className="mot-sample-rows">
+              {motAreas.map((area) => (
+                <div className="mot-sample-row" key={area.name}>
+                  <span className="mot-sample-area">{area.name}</span>
+                  <span className="mot-sample-dots" aria-hidden="true">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <span key={i} className={`mot-dot${i <= area.score ? ' filled' : ''}`}></span>
+                    ))}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="mot-sample-foot">
+              Illustrative. The 12-point check is the standard; the six areas are named in your sector's language.
+            </div>
           </div>
         </div>
       </div>
@@ -78,17 +92,10 @@ export default function Hero() {
         .hero-section {
           position: relative;
           padding-top: 160px;
-          padding-bottom: 100px;
-          min-height: 100vh;
+          padding-bottom: 80px;
           display: flex;
           align-items: center;
-          background: var(--gradient-hero);
           overflow: hidden;
-        }
-
-        .hero-grid {
-          position: relative;
-          z-index: 1;
         }
 
         @media (max-width: 992px) {
@@ -99,8 +106,10 @@ export default function Hero() {
         }
 
         .hero-grid {
+          position: relative;
+          z-index: 1;
           display: grid;
-          grid-template-columns: 1.1fr 0.9fr;
+          grid-template-columns: 1.2fr 0.8fr;
           gap: 4rem;
           align-items: center;
         }
@@ -108,35 +117,75 @@ export default function Hero() {
         @media (max-width: 992px) {
           .hero-grid {
             grid-template-columns: 1fr;
-            gap: 3.5rem;
+            gap: 3rem;
           }
         }
 
+        .hero-eyebrow {
+          border: 1px solid var(--border-color-hover);
+          border-radius: 999px;
+          padding: 0.45rem 1rem;
+          color: var(--eyebrow);
+        }
+
         .hero-headline {
-          font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+          font-size: clamp(2.9rem, 5.8vw, 4.8rem);
           color: var(--text-primary);
-          line-height: 1.1;
+          line-height: 1.05;
+          letter-spacing: -0.02em;
           margin-bottom: 1.5rem;
         }
 
         .gold-text {
-          background: linear-gradient(135deg, var(--accent-gold) 0%, hsl(35, 90%, 65%) 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          color: var(--accent-gold);
         }
 
         .hero-paragraph {
-          font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+          font-size: clamp(1.05rem, 1.3vw, 1.2rem);
           line-height: 1.7;
           margin-bottom: 2.5rem;
-          max-width: 620px;
+          max-width: 600px;
         }
 
         .hero-ctas {
           display: flex;
-          gap: 1.25rem;
-          margin-bottom: 0;
+          gap: 1rem;
           flex-wrap: wrap;
+        }
+
+        .btn-hero-primary,
+        .btn-hero-secondary {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-family: var(--font-heading);
+          font-weight: 600;
+          font-size: 1rem;
+          padding: 0.95rem 2rem;
+          border-radius: 999px;
+          text-decoration: none;
+          transition: var(--transition-fast);
+        }
+
+        .btn-hero-primary {
+          background-color: var(--ink);
+          color: var(--panel-dark-text);
+        }
+
+        .btn-hero-primary:hover {
+          transform: translateY(-2px);
+          background-color: hsl(220, 17%, 14%);
+        }
+
+        .btn-hero-secondary {
+          border: 1px solid var(--ink);
+          color: var(--text-primary);
+        }
+
+        .btn-hero-secondary:hover {
+          transform: translateY(-2px);
+          color: var(--accent-gold);
+          border-color: var(--accent-gold);
         }
 
         .hero-proof {
@@ -155,7 +204,7 @@ export default function Hero() {
         .hero-proof svg {
           flex-shrink: 0;
           margin-top: 0.15rem;
-          color: var(--accent-teal);
+          color: var(--accent-gold);
         }
 
         .hero-visual-wrapper {
@@ -164,34 +213,90 @@ export default function Hero() {
           position: relative;
         }
 
-        .image-frame-gold {
-          position: relative;
-          border-radius: var(--border-radius-xl);
-          padding: 12px;
-          background: linear-gradient(135deg, var(--border-color) 0%, var(--accent-gold-glow) 100%);
-          border: 1px solid var(--border-color);
-          box-shadow: var(--glass-shadow), 0 20px 50px rgba(0, 0, 0, 0.08);
-          transition: transform 0.3s ease;
-          overflow: hidden;
-          will-change: transform;
-          max-width: 480px;
+        .mot-sample-card {
           width: 100%;
-          aspect-ratio: 1;
+          max-width: 360px;
+          background-color: var(--bg-card);
+          border: 2px solid var(--ink);
+          border-radius: 14px;
+          box-shadow: var(--glass-shadow);
+          overflow: hidden;
+        }
+
+        .mot-sample-head {
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: space-between;
+          padding: 0.75rem 1.15rem;
+          border-bottom: 2px solid var(--ink);
+          background-color: var(--accent-gold-bright);
         }
 
-        .hero-main-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: calc(var(--border-radius-xl) - 8px);
-          transition: transform 0.3s ease;
+        .mot-sample-title {
+          font-family: var(--font-heading);
+          font-size: 0.78rem;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: var(--ink);
         }
 
-        .image-frame-gold:hover {
-          transform: scale(1.05);
+        .mot-sample-pill {
+          font-size: 0.62rem;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: var(--panel-dark-text);
+          background-color: var(--ink);
+          border-radius: 999px;
+          padding: 0.2rem 0.6rem;
+        }
+
+        .mot-sample-rows {
+          display: flex;
+          flex-direction: column;
+          gap: 0.7rem;
+          padding: 1rem 1.15rem;
+        }
+
+        .mot-sample-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+        }
+
+        .mot-sample-area {
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: var(--text-primary);
+        }
+
+        .mot-sample-dots {
+          display: inline-flex;
+          gap: 4px;
+          flex-shrink: 0;
+        }
+
+        .mot-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          border: 1px solid var(--border-color-hover);
+          display: inline-block;
+        }
+
+        .mot-dot.filled {
+          background-color: var(--accent-gold);
+          border-color: var(--accent-gold);
+        }
+
+        .mot-sample-foot {
+          padding: 0.7rem 1.15rem 0.9rem;
+          border-top: 1px solid var(--border-color);
+          font-size: 0.7rem;
+          line-height: 1.5;
+          color: var(--text-secondary);
         }
 
         .animate-tag {

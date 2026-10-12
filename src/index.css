@@ -21,91 +21,98 @@
   
   --max-width: 1400px;
   
-  /* Light Mode Variables (Default) */
-  --bg-primary: hsl(30, 10%, 96%);
-  --bg-secondary: hsl(30, 8%, 93%);
-  --bg-card: hsla(30, 10%, 96%, 0.9);
-  --text-primary: hsl(220, 22%, 15%);
-  --text-secondary: hsl(220, 12%, 45%);
-  
-  --accent-gold: hsl(35, 70%, 45%);
-  --accent-gold-glow: hsla(35, 70%, 45%, 0.15);
-  --accent-teal: hsl(182, 65%, 40%);
-  --accent-teal-glow: hsla(182, 65%, 40%, 0.15);
-  
-  --border-color: hsla(220, 12%, 65%, 0.15);
-  --border-color-hover: hsla(220, 12%, 65%, 0.25);
-  
-  --glass-bg: hsla(30, 10%, 96%, 0.75);
-  --glass-shadow: 0 8px 32px 0 rgba(14, 18, 25, 0.04);
-  
-  --gradient-hero: radial-gradient(circle at 80% 20%, hsla(35, 70%, 45%, 0.08) 0%, transparent 60%),
-                    radial-gradient(circle at 10% 80%, hsla(182, 65%, 40%, 0.05) 0%, transparent 60%);
-  
-  --glow-circle-1: radial-gradient(circle, hsla(35, 70%, 45%, 0.05) 0%, transparent 70%);
-  --glow-circle-2: radial-gradient(circle, hsla(182, 65%, 40%, 0.05) 0%, transparent 70%);
+  /* Cream "World of Tomorrow" palette (single theme) */
+  --bg-primary: hsl(39, 48%, 92%);          /* #F4EDE0 cream ground */
+  --bg-secondary: hsl(40, 42%, 88%);        /* deeper cream band */
+  --bg-card: hsl(42, 100%, 97%);            /* #FFFBF2 card */
+  --text-primary: hsl(220, 17%, 7%);        /* #0F1115 ink */
+  --text-secondary: hsl(39, 13%, 25%);      /* #4A4335 warm grey */
+
+  --accent-gold: hsl(36, 88%, 40%);         /* #C07A0C */
+  --accent-gold-glow: hsla(36, 88%, 40%, 0.14);
+  --accent-gold-bright: hsl(37, 74%, 65%);  /* #E8B763 gold on dark panels */
+  --accent-teal: hsl(182, 68%, 32%);
+  --accent-teal-glow: hsla(182, 68%, 32%, 0.14);
+
+  --panel-dark: hsl(220, 17%, 7%);          /* #0F1115 feature panels */
+  --panel-dark-text: hsl(39, 48%, 92%);     /* cream text on dark */
+  --panel-dark-muted: hsl(38, 19%, 66%);    /* #B8AE98 muted on dark */
+  --eyebrow: hsl(40, 65%, 33%);             /* #8A6A1F eyebrow gold-brown */
+  --ink: hsl(220, 17%, 7%);                 /* hard 2px borders */
+
+  --border-color: hsl(40, 34%, 79%);        /* #DCD0B8 */
+  --border-color-hover: hsl(41, 29%, 70%);  /* #C9BB9C */
+
+  --glass-bg: hsla(42, 100%, 97%, 0.9);
+  --glass-shadow: 5px 5px 0 rgba(15, 17, 21, 0.12);
+
+  --gradient-hero: none;
+  --glow-circle-1: none;
+  --glow-circle-2: none;
 }
 
 /* Dark Mode (optional) */
 [data-theme="dark"] {
-  --bg-primary: hsl(220, 18%, 7%);
-  --bg-secondary: hsl(220, 15%, 11%);
-  --bg-card: hsla(220, 15%, 11%, 0.6);
-  --text-primary: hsl(210, 15%, 95%);
-  --text-secondary: hsl(215, 10%, 65%);
-  
-  --accent-gold: hsl(35, 75%, 55%);
-  --accent-gold-glow: hsla(35, 75%, 55%, 0.2);
-  --accent-teal: hsl(182, 70%, 48%);
-  --accent-teal-glow: hsla(182, 70%, 48%, 0.2);
-  
-  --border-color: hsla(210, 15%, 95%, 0.06);
-  --border-color-hover: hsla(210, 15%, 95%, 0.15);
-  
-  --glass-bg: hsla(220, 18%, 7%, 0.75);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-  
-  --gradient-hero: radial-gradient(circle at 80% 20%, hsla(35, 75%, 55%, 0.07) 0%, transparent 50%),
-                    radial-gradient(circle at 10% 80%, hsla(182, 70%, 48%, 0.06) 0%, transparent 50%);
-  
-  --glow-circle-1: radial-gradient(circle, hsla(35, 75%, 55%, 0.04) 0%, transparent 60%);
-  --glow-circle-2: radial-gradient(circle, hsla(182, 70%, 48%, 0.04) 0%, transparent 60%);
+  /* Cream "World of Tomorrow" palette (single theme) */
+  --bg-primary: hsl(39, 48%, 92%);          /* #F4EDE0 cream ground */
+  --bg-secondary: hsl(40, 42%, 88%);        /* deeper cream band */
+  --bg-card: hsl(42, 100%, 97%);            /* #FFFBF2 card */
+  --text-primary: hsl(220, 17%, 7%);        /* #0F1115 ink */
+  --text-secondary: hsl(39, 13%, 25%);      /* #4A4335 warm grey */
+
+  --accent-gold: hsl(36, 88%, 40%);         /* #C07A0C */
+  --accent-gold-glow: hsla(36, 88%, 40%, 0.14);
+  --accent-gold-bright: hsl(37, 74%, 65%);  /* #E8B763 gold on dark panels */
+  --accent-teal: hsl(182, 68%, 32%);
+  --accent-teal-glow: hsla(182, 68%, 32%, 0.14);
+
+  --panel-dark: hsl(220, 17%, 7%);          /* #0F1115 feature panels */
+  --panel-dark-text: hsl(39, 48%, 92%);     /* cream text on dark */
+  --panel-dark-muted: hsl(38, 19%, 66%);    /* #B8AE98 muted on dark */
+  --eyebrow: hsl(40, 65%, 33%);             /* #8A6A1F eyebrow gold-brown */
+  --ink: hsl(220, 17%, 7%);                 /* hard 2px borders */
+
+  --border-color: hsl(40, 34%, 79%);        /* #DCD0B8 */
+  --border-color-hover: hsl(41, 29%, 70%);  /* #C9BB9C */
+
+  --glass-bg: hsla(42, 100%, 97%, 0.9);
+  --glass-shadow: 5px 5px 0 rgba(15, 17, 21, 0.12);
+
+  --gradient-hero: none;
+  --glow-circle-1: none;
+  --glow-circle-2: none;
 }
 
 
 [data-theme="light"] {
-  /* Crisp white foundation with cool-neutral depth */
-  --bg-primary: hsl(210, 20%, 98%);
-  --bg-secondary: hsl(214, 22%, 94%);
-  --bg-card: hsl(0, 0%, 100%);
+  /* Cream "World of Tomorrow" palette (single theme) */
+  --bg-primary: hsl(39, 48%, 92%);          /* #F4EDE0 cream ground */
+  --bg-secondary: hsl(40, 42%, 88%);        /* deeper cream band */
+  --bg-card: hsl(42, 100%, 97%);            /* #FFFBF2 card */
+  --text-primary: hsl(220, 17%, 7%);        /* #0F1115 ink */
+  --text-secondary: hsl(39, 13%, 25%);      /* #4A4335 warm grey */
 
-  /* Authoritative near-black text */
-  --text-primary: hsl(222, 35%, 10%);
-  --text-secondary: hsl(220, 18%, 42%);
-
-  /* Deeper amber gold — darkened for WCAG AA on white (~4.9:1 for small text) */
-  --accent-gold: hsl(35, 85%, 34%);
-  --accent-gold-glow: hsla(35, 85%, 34%, 0.14);
-
-  /* Deeper teal for white backgrounds */
+  --accent-gold: hsl(36, 88%, 40%);         /* #C07A0C */
+  --accent-gold-glow: hsla(36, 88%, 40%, 0.14);
+  --accent-gold-bright: hsl(37, 74%, 65%);  /* #E8B763 gold on dark panels */
   --accent-teal: hsl(182, 68%, 32%);
   --accent-teal-glow: hsla(182, 68%, 32%, 0.14);
 
-  /* Visible, clean borders */
-  --border-color: hsl(216, 20%, 86%);
-  --border-color-hover: hsl(216, 20%, 72%);
+  --panel-dark: hsl(220, 17%, 7%);          /* #0F1115 feature panels */
+  --panel-dark-text: hsl(39, 48%, 92%);     /* cream text on dark */
+  --panel-dark-muted: hsl(38, 19%, 66%);    /* #B8AE98 muted on dark */
+  --eyebrow: hsl(40, 65%, 33%);             /* #8A6A1F eyebrow gold-brown */
+  --ink: hsl(220, 17%, 7%);                 /* hard 2px borders */
 
-  /* Elevated card shadows for depth hierarchy */
-  --glass-bg: hsla(0, 0%, 100%, 0.90);
-  --glass-shadow: 0 2px 8px 0 rgba(14, 22, 40, 0.06),
-                  0 8px 24px 0 rgba(14, 22, 40, 0.08);
+  --border-color: hsl(40, 34%, 79%);        /* #DCD0B8 */
+  --border-color-hover: hsl(41, 29%, 70%);  /* #C9BB9C */
 
-  /* Subtle directional glow */
-  --gradient-hero: radial-gradient(circle at 75% 15%, hsla(35, 88%, 40%, 0.07) 0%, transparent 55%),
-                    radial-gradient(circle at 15% 85%, hsla(182, 68%, 32%, 0.05) 0%, transparent 55%);
+  --glass-bg: hsla(42, 100%, 97%, 0.9);
+  --glass-shadow: 5px 5px 0 rgba(15, 17, 21, 0.12);
 
-  --glow-circle-1: radial-gradient(circle, hsla(35, 88%, 40%, 0.06) 0%, transparent 70%);
-  --glow-circle-2: radial-gradient(circle, hsla(182, 68%, 32%, 0.05) 0%, transparent 70%);
+  --gradient-hero: none;
+  --glow-circle-1: none;
+  --glow-circle-2: none;
 }
 
 /* --------------------------------------------------------------------------
