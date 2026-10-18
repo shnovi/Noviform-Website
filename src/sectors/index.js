@@ -10,5 +10,5 @@ export function getSector(slug) {
   return sectors.find((s) => s.slug === slug) || null
 }
 
-// Pre-render targets (used by scripts/prerender.mjs and main.jsx routing).
+// Pre-render targets (used by tools/prerender.mjs and main.jsx routing).
 export const sectorSlugs = sectors.map((s) => s.slug)

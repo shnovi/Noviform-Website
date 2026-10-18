@@ -12,7 +12,7 @@ const Tick = () => (
 )
 
 // One template for all four sector pages, driven by src/sectors/*.js.
-// Rendered to static HTML at build time (scripts/prerender.mjs) and hydrated on the client,
+// Rendered to static HTML at build time (tools/prerender.mjs) and hydrated on the client,
 // so the full copy is in the HTML for search engines. No reveal-on-scroll classes here:
 // the page must be fully visible before any JavaScript runs.
 export default function SectorPage({ sector }) {

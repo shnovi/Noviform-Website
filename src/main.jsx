@@ -18,7 +18,7 @@ import './assets/css/animations.css';
 import './index.css'
 
 // Routing without a router: the homepage is the SPA at "/", and each sector page is a
-// pre-rendered static HTML file at "/<slug>/" (see scripts/prerender.mjs). The sector
+// pre-rendered static HTML file at "/<slug>/" (see tools/prerender.mjs). The sector
 // pages ship with their markup already in the HTML, so we hydrate rather than render.
 const slug = window.location.pathname.replace(/^\/+|\/+$/g, '')
 const sector = slug ? getSector(slug) : null

@@ -1,6 +1,8 @@
 // Pre-renders the sector pages to static HTML after the client build.
 //
-//   npm run build  ->  vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs
+// Lives in tools/, not scripts/: .vercelignore excludes scripts/ from the deploy upload.
+//
+//   npm run build  ->  vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node tools/prerender.mjs
 //
 // For each sector it takes dist/index.html (which already links the hashed CSS and JS),
 // swaps the <head> metadata for that sector's, injects the rendered markup into #root,

@@ -11,7 +11,7 @@ export default defineConfig(({ isSsrBuild }) => ({
     target: 'esnext',
     cssMinify: true,
     // Manual chunks apply to the client bundle only; the SSR build (used to pre-render
-    // the sector pages, see scripts/prerender.mjs) externalises react and must not split it.
+    // the sector pages, see tools/prerender.mjs) externalises react and must not split it.
     rollupOptions: isSsrBuild
       ? {}
       : {
