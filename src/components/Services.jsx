@@ -96,7 +96,7 @@ export default function Services() {
         <div className="services-header reveal-on-scroll">
           <span className="section-tag">What You Can Buy</span>
           <h2 className="section-title proof-title">
-            Most AI spend can&rsquo;t be traced to a return. We make yours{' '}
+            Most AI and automation spend can&rsquo;t be traced to a return. We make yours{' '}
             <span className="proof-highlight">impossible to argue with</span>.
           </h2>
           <p className="section-desc">

@@ -29,7 +29,7 @@ export default {
     footer: "Illustrative. The 12-point check across six areas, named in your operation's language. Scope it to one line of business if you prefer."
   },
   problem: {
-    heading: 'AI in insurance is a governance problem before it is a technology problem.',
+    heading: 'AI and automation in insurance are a governance problem before they are a technology problem.',
     paras: [
       'Adoption is running ahead of control. Claims handlers are summarising files in public chat tools. Brokers expect faster answers. Your policy administration, claims and CRM vendors are adding AI features you did not ask for and cannot easily switch off.',
       "The regulator's position is clear. No new rules are coming, because the existing ones already apply."

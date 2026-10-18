@@ -27,7 +27,7 @@ export default function WhyPilotsStall() {
         <div className="why-header reveal-on-scroll">
           <span className="section-tag">Why the pilots stall</span>
           <h2 className="section-title why-title">
-            Building the AI is the easy half.{' '}
+            Building it is the easy half.{' '}
             <span className="why-gold">Getting it used is the half that pays.</span>
           </h2>
           <p className="why-desc">

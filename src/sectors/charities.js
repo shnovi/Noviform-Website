@@ -11,7 +11,7 @@ export default {
     eyebrow: 'Charities and the third sector',
     h1: 'Your staff already use AI.',
     h1Gold: 'Now your trustees can govern it.',
-    intro: 'Most charities now use AI routinely, often on personal accounts with no policy behind it. Noviform helps charities put sensible rules in place, get staff using AI safely on their real work, and take hours of admin off people whose time belongs with your beneficiaries.',
+    intro: 'Most charities now use AI routinely, often on personal accounts with no policy behind it. Noviform helps charities put sensible rules in place, get staff using AI safely on their real work, and take hours of admin off people whose time belongs with your beneficiaries, with simple automation where a rule does the job, and AI where it genuinely helps.',
     primary: 'Book a Call',
     secondary: 'See the training pathway',
     proof: 'Every hour of admin we remove is an hour back into the work your charity exists to do.'
