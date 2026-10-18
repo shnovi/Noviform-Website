@@ -10,3 +10,6 @@ data/firecrawl/
 index.zip
 .vercel/
 .DS_Store
+
+# SSR bundle used only during build (scripts/prerender.mjs removes it)
+dist-ssr/

@@ -70,6 +70,12 @@ export default function Services() {
   const [selected, setSelected] = React.useState(0);
   const tabRefs = React.useRef([]);
 
+  const pressPreset = (i) => {
+    setSelected(i);
+    const el = tabRefs.current[i];
+    if (el) el.focus({ preventScroll: true });
+  };
+
   const onKeyNav = (e, i) => {
     let next = null;
     if (e.key === 'ArrowRight') next = (i + 1) % modules.length;
@@ -94,8 +100,23 @@ export default function Services() {
             <span className="proof-highlight">impossible to argue with</span>.
           </h2>
           <p className="section-desc">
-            Noviform builds AI and automation into your real workflows and proves what it&rsquo;s saving. The business case, not the demo. Seven ways in, one console. Press a preset.
+            Each preset answers one of the three reasons above. Start with the MOT and we will tell you which of the others you actually need. Seven ways in, one console. Press a preset.
           </p>
+        </div>
+
+        <div className="reason-map reveal-on-scroll" aria-label="Which preset answers which reason">
+          <button type="button" className="reason-key" onClick={() => pressPreset(0)}>
+            <span className="reason-label">Reason 01 &middot; where to point it</span>
+            <span className="reason-answer">The AI MOT</span>
+          </button>
+          <button type="button" className="reason-key" onClick={() => pressPreset(3)}>
+            <span className="reason-label">Reason 02 &middot; what is allowed</span>
+            <span className="reason-answer">Leaders &amp; Boards &middot; AI Assurance</span>
+          </button>
+          <button type="button" className="reason-key" onClick={() => pressPreset(1)}>
+            <span className="reason-label">Reason 03 &middot; how the team works</span>
+            <span className="reason-answer">AI 101 &middot; AI 102 &middot; Build &middot; Managed Ops</span>
+          </button>
         </div>
 
         <div className="lead-band reveal-on-scroll">
@@ -768,6 +789,56 @@ export default function Services() {
         @media (prefers-reduced-motion: reduce) {
           .console-preset {
             transition: none;
+          }
+        }
+
+        .reason-map {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 0.9rem;
+          margin: -1.5rem 0 2rem;
+        }
+
+        .reason-key {
+          text-align: left;
+          font-family: inherit;
+          cursor: pointer;
+          background-color: var(--bg-card);
+          border: 2px solid var(--ink);
+          border-radius: 12px;
+          box-shadow: 4px 4px 0 rgba(15, 17, 21, 0.12);
+          padding: 0.85rem 1rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.2rem;
+          transition: var(--transition-fast);
+        }
+
+        .reason-key:hover,
+        .reason-key:focus-visible {
+          background-color: var(--accent-gold-bright);
+          transform: translateY(-2px);
+        }
+
+        .reason-label {
+          font-size: 0.68rem;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: var(--eyebrow);
+        }
+
+        .reason-answer {
+          font-family: var(--font-heading);
+          font-weight: 600;
+          font-size: 0.95rem;
+          color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+          .reason-map {
+            grid-template-columns: 1fr;
+            margin-top: -0.5rem;
           }
         }
       `}</style>
