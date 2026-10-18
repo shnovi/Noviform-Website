@@ -91,7 +91,7 @@ export default {
     { q: 'What does an AI Assurance review give our board?', a: 'An independent, evidenced view of the AI and automation you use or plan to use, what is well controlled, what is exposed and what to fix first. It is written for a risk committee and internal audit, not just a technical team.' }
   ],
   cta: {
-    heading: 'Move faster on AI, with the evidence to back it up.',
+    heading: 'Move faster on AI and automation, with the evidence to back it up.',
     body: 'Start with a 30-minute conversation. We will talk through where you are, what your risk and compliance teams need, and whether an AI MOT or an AI Assurance review is the right first step. No obligation and no sales pitch.',
     primary: 'Book a 30-minute call',
     secondary: 'Send us a message'
