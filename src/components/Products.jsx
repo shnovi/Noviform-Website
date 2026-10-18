@@ -189,7 +189,7 @@ export default function Products() {
                 <li>Build controls in early so delivery stays safe</li>
                 <li>Stay close to the work until it lands</li>
                 <li>Tell you what is actually blocking progress</li>
-                <li>Design adoption in from day one</li>
+                <li>Change how the team works, not just what it has</li>
               </ul>
             </div>
             <div className="dont-do-divider" aria-hidden="true"></div>
@@ -198,7 +198,7 @@ export default function Products() {
               <ul className="dont-do-list dont-list">
                 <li>Run change by PowerPoint</li>
                 <li>Hide risk behind optimism</li>
-                <li>Confuse busy teams with progress</li>
+                <li>Call a demo an adoption</li>
                 <li>Disappear after go live</li>
                 <li>Hand your account to junior consultants</li>
                 <li>Extend work that is not earning its keep</li>

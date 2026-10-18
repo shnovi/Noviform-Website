@@ -4,16 +4,16 @@ import founderPhoto from '../assets/Ahmed_Sheikh.jpg'
 export default function Trust() {
   const brandTruths = [
     {
+      title: "Adoption is the finish line",
+      detail: "If users do not adopt it, it did not land. We design change around the people who have to use it."
+    },
+    {
       title: "Outcomes over optics",
       detail: "We do not sell transformation theatre. We deliver work you can point to, through a metric, a risk reduction or a real change in behaviour."
     },
     {
       title: "Clarity is a delivery tool",
       detail: "Clear priorities beat big plans. We simplify scope, ownership and trade offs so decisions happen earlier."
-    },
-    {
-      title: "Adoption is the finish line",
-      detail: "If users do not adopt it, it did not land. We design change around the people who have to use it."
     },
     {
       title: "Controls are design inputs",
@@ -30,10 +30,10 @@ export default function Trust() {
   ]
 
   const sectors = [
-    "Banking and financial services",
-    "Insurance, including the London Market and personal lines",
-    "Higher education",
-    "Charities and the third sector"
+    { label: "Banking and financial services", href: "/financial-services/" },
+    { label: "Insurance, including the London Market and personal lines", href: "/insurance/" },
+    { label: "Higher education", href: "/higher-education/" },
+    { label: "Charities and the third sector", href: "/charities/" }
   ]
 
   return (
@@ -62,12 +62,13 @@ export default function Trust() {
             <h3 className="where-title">We Work Where AI Is Hardest to Land</h3>
             <p className="where-desc">Most AI work goes hunting for easy wins. We are built for the opposite. The places where governance, controls and competing priorities stall most AI programmes are exactly where the value is locked up. That is the work we want.</p>
           </div>
-          <div className="sector-list">
+          <div className="sector-list" id="sectors">
             {sectors.map((sector) => (
-              <div className="sector-item" key={sector}>
+              <a className="sector-item" key={sector.href} href={sector.href}>
                 <span aria-hidden="true">✓</span>
-                <p>{sector}</p>
-              </div>
+                <p>{sector.label}</p>
+                <span className="sector-arrow" aria-hidden="true">&rarr;</span>
+              </a>
             ))}
           </div>
         </div>
@@ -213,14 +214,31 @@ export default function Trust() {
           border: 1px solid var(--border-color);
         }
 
+        .sector-item {
+          text-decoration: none;
+          transition: var(--transition-fast);
+        }
+
+        .sector-item:hover {
+          border-color: var(--ink);
+          background-color: var(--bg-card);
+          transform: translateX(4px);
+        }
+
         .sector-item span {
-          color: var(--accent-teal);
+          color: var(--accent-gold);
           font-weight: 700;
         }
 
         .sector-item p {
           color: var(--text-primary);
           font-size: 0.95rem;
+          margin: 0;
+          flex: 1;
+        }
+
+        .sector-arrow {
+          color: var(--accent-gold);
         }
 
         .founder-note {

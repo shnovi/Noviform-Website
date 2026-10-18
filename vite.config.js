@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react()],
   server: {
     port: 3000,
@@ -10,14 +10,18 @@ export default defineConfig({
   build: {
     target: 'esnext',
     cssMinify: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          motion: ['framer-motion']
-        }
-      }
-    },
+    // Manual chunks apply to the client bundle only; the SSR build (used to pre-render
+    // the sector pages, see tools/prerender.mjs) externalises react and must not split it.
+    rollupOptions: isSsrBuild
+      ? {}
+      : {
+          output: {
+            manualChunks: {
+              vendor: ['react', 'react-dom'],
+              motion: ['framer-motion']
+            }
+          }
+        },
     chunkSizeWarningLimit: 600
   }
-})
+}))

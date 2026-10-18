@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import MotCard from './MotCard';
 
 const heroContainerVariants = {
   hidden: {},
@@ -25,17 +26,19 @@ export default function Hero() {
     <motion.section className="hero-section" variants={heroContainerVariants} initial="hidden" animate="visible">
       <div className="hero-grid container">
         <div className="hero-content">
-          <motion.div className="section-tag animate-tag hero-eyebrow" variants={heroItemVariants}>AI &amp; Automation for Complex Organisations</motion.div>
+          <motion.div className="section-tag animate-tag hero-eyebrow" variants={heroItemVariants}>Less Theatre. More Outcomes.</motion.div>
 
           <motion.h1 className="hero-headline" variants={heroItemVariants}>
-            Less Theatre. <br />
-            <span className="gold-text">More Outcomes.</span>
+            The AI is switched on. The return isn&rsquo;t.{' '}
+            <span className="gold-text">We close that gap.</span>
           </motion.h1>
 
           <motion.p className="hero-paragraph" variants={heroItemVariants}>
-            Noviform helps organisations get provable outcomes from AI, automation and change.
-            We work best where the environment is complex, the controls matter and the status deck is no
-            longer enough. Clear scope, senior delivery and adoption built in from the first conversation.
+            Most organisations have switched on AI tools and run a pilot or two. Most have nothing
+            measurable to show for it. The tools are not the problem. Nobody has decided where to point
+            them, what to fix first, or how to get a team to change the way it works. Noviform does the
+            AI work, from finding the use case to building and running it, and the harder part that most
+            people skip: getting it used, controlled and measured.
           </motion.p>
 
           <div className="hero-ctas">
@@ -51,40 +54,23 @@ export default function Hero() {
               </svg>
             </a>
             <a href="#services" className="btn btn-hero-secondary">
-              <span>See Services</span>
+              <span>Start with the AI MOT</span>
             </a>
           </div>
 
           <motion.p className="hero-proof" variants={heroItemVariants}>
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-            Senior-led delivery for banks, insurers and universities — outcomes you can measure, not slideware.
+            £3.85 back for every £1 invested, with Year 1 savings already delivered, on a UK university automation programme we lead today. Senior-led, measured, no slideware.
           </motion.p>
 
         </div>
 
         {/* Hero Right Visual Column: sample AI MOT scorecard */}
         <div className="hero-visual-wrapper reveal-on-scroll revealed">
-          <div className="mot-sample-card" role="img" aria-label="Illustrative sample of the Organisational AI MOT scorecard, six areas each rated out of five">
-            <div className="mot-sample-head">
-              <span className="mot-sample-title">The AI MOT</span>
-              <span className="mot-sample-pill">Sample</span>
-            </div>
-            <div className="mot-sample-rows">
-              {motAreas.map((area) => (
-                <div className="mot-sample-row" key={area.name}>
-                  <span className="mot-sample-area">{area.name}</span>
-                  <span className="mot-sample-dots" aria-hidden="true">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <span key={i} className={`mot-dot${i <= area.score ? ' filled' : ''}`}></span>
-                    ))}
-                  </span>
-                </div>
-              ))}
-            </div>
-            <div className="mot-sample-foot">
-              Illustrative. The 12-point check is the standard; the six areas are named in your sector's language.
-            </div>
-          </div>
+          <MotCard
+            areas={motAreas}
+            footer="Illustrative. The 12-point check is the standard; the six areas are named in your sector's language."
+          />
         </div>
       </div>
 
@@ -129,7 +115,7 @@ export default function Hero() {
         }
 
         .hero-headline {
-          font-size: clamp(2.9rem, 5.8vw, 4.8rem);
+          font-size: clamp(2.5rem, 4.8vw, 4rem);
           color: var(--text-primary);
           line-height: 1.05;
           letter-spacing: -0.02em;
@@ -198,7 +184,7 @@ export default function Hero() {
           line-height: 1.5;
           font-weight: 500;
           color: var(--text-secondary);
-          max-width: 480px;
+          max-width: 560px;
         }
 
         .hero-proof svg {
@@ -211,92 +197,6 @@ export default function Hero() {
           display: flex;
           justify-content: center;
           position: relative;
-        }
-
-        .mot-sample-card {
-          width: 100%;
-          max-width: 360px;
-          background-color: var(--bg-card);
-          border: 2px solid var(--ink);
-          border-radius: 14px;
-          box-shadow: var(--glass-shadow);
-          overflow: hidden;
-        }
-
-        .mot-sample-head {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 0.75rem 1.15rem;
-          border-bottom: 2px solid var(--ink);
-          background-color: var(--accent-gold-bright);
-        }
-
-        .mot-sample-title {
-          font-family: var(--font-heading);
-          font-size: 0.78rem;
-          font-weight: 700;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: var(--ink);
-        }
-
-        .mot-sample-pill {
-          font-size: 0.62rem;
-          font-weight: 700;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: var(--panel-dark-text);
-          background-color: var(--ink);
-          border-radius: 999px;
-          padding: 0.2rem 0.6rem;
-        }
-
-        .mot-sample-rows {
-          display: flex;
-          flex-direction: column;
-          gap: 0.7rem;
-          padding: 1rem 1.15rem;
-        }
-
-        .mot-sample-row {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 1rem;
-        }
-
-        .mot-sample-area {
-          font-size: 0.85rem;
-          font-weight: 600;
-          color: var(--text-primary);
-        }
-
-        .mot-sample-dots {
-          display: inline-flex;
-          gap: 4px;
-          flex-shrink: 0;
-        }
-
-        .mot-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          border: 1px solid var(--border-color-hover);
-          display: inline-block;
-        }
-
-        .mot-dot.filled {
-          background-color: var(--accent-gold);
-          border-color: var(--accent-gold);
-        }
-
-        .mot-sample-foot {
-          padding: 0.7rem 1.15rem 0.9rem;
-          border-top: 1px solid var(--border-color);
-          font-size: 0.7rem;
-          line-height: 1.5;
-          color: var(--text-secondary);
         }
 
         .animate-tag {

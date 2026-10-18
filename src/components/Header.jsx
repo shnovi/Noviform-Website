@@ -65,10 +65,11 @@ export default function Header() {
 
         {/* Desktop Navigation matching original site tabs */}
         <nav className="desktop-nav" aria-label="Main navigation">
-          <a href="#services" className={navClass('services')} aria-current={ariaCurrent('services')}>Services</a>
-          <a href="#how-we-work" className={navClass('how-we-work')} aria-current={ariaCurrent('how-we-work')}>How We Work</a>
-          <a href="#about" className={navClass('about')} aria-current={ariaCurrent('about')}>About</a>
-          <a href="#contact" className={navClass('contact')} aria-current={ariaCurrent('contact')}>Contact</a>
+          <a href="/#services" className={navClass('services')} aria-current={ariaCurrent('services')}>Services</a>
+          <a href="/#sectors" className={navClass('sectors')}>Sectors</a>
+          <a href="/#how-we-work" className={navClass('how-we-work')} aria-current={ariaCurrent('how-we-work')}>How We Work</a>
+          <a href="/#about" className={navClass('about')} aria-current={ariaCurrent('about')}>About</a>
+          <a href="/#contact" className={navClass('contact')} aria-current={ariaCurrent('contact')}>Contact</a>
           <a 
             href="https://calendly.com/asheikh-noviform/30min" 
             target="_blank" 
@@ -103,10 +104,11 @@ export default function Header() {
         inert={!mobileMenuOpen ? '' : undefined}
       >
         <nav className="mobile-nav" aria-label="Mobile navigation">
-          <a href="#services" className={mobileNavClass('services')} aria-current={ariaCurrent('services')} onClick={() => setMobileMenuOpen(false)}>Services</a>
-          <a href="#how-we-work" className={mobileNavClass('how-we-work')} aria-current={ariaCurrent('how-we-work')} onClick={() => setMobileMenuOpen(false)}>How We Work</a>
-          <a href="#about" className={mobileNavClass('about')} aria-current={ariaCurrent('about')} onClick={() => setMobileMenuOpen(false)}>About</a>
-          <a href="#contact" className={mobileNavClass('contact')} aria-current={ariaCurrent('contact')} onClick={() => setMobileMenuOpen(false)}>Contact</a>
+          <a href="/#services" className={mobileNavClass('services')} aria-current={ariaCurrent('services')} onClick={() => setMobileMenuOpen(false)}>Services</a>
+          <a href="/#sectors" className={mobileNavClass('sectors')} onClick={() => setMobileMenuOpen(false)}>Sectors</a>
+          <a href="/#how-we-work" className={mobileNavClass('how-we-work')} aria-current={ariaCurrent('how-we-work')} onClick={() => setMobileMenuOpen(false)}>How We Work</a>
+          <a href="/#about" className={mobileNavClass('about')} aria-current={ariaCurrent('about')} onClick={() => setMobileMenuOpen(false)}>About</a>
+          <a href="/#contact" className={mobileNavClass('contact')} aria-current={ariaCurrent('contact')} onClick={() => setMobileMenuOpen(false)}>Contact</a>
           <a 
             href="https://calendly.com/asheikh-noviform/30min" 
             target="_blank" 
