@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 const faqs = [
   {
     q: 'We rolled out Copilot and nothing changed. Can you help?',
-    a: 'Yes, and it is the most common place we start. The licence was never the problem. The AI MOT finds where the tool should be pointed and what is stopping the team using it, in two weeks, with the numbers attached. Then you decide what to fix first.'
+    a: 'Yes, and it is the most common place we start. The licence was never the problem. The AI MOT finds what the tool should be used on and what is stopping the team using it, in two weeks, with the numbers attached. Then you decide what to fix first.'
   },
   {
     q: 'What does Noviform do?',

@@ -5,8 +5,8 @@ import React from 'react'
 const reasons = [
   {
     num: '01',
-    title: 'Nobody knows where to point it',
-    text: 'Licences land on every desk. The work that would actually pay sits unidentified in three teams’ inboxes.'
+    title: 'Nobody has chosen what to use it on',
+    text: 'The licences and the automation platform go to everyone. The slow, repetitive work that would actually pay back is never picked out, so the tools get used on whatever people happen to try.'
   },
   {
     num: '02',
@@ -32,7 +32,7 @@ export default function WhyPilotsStall() {
           </h2>
           <p className="why-desc">
             We build automation, agents and AI workflows. The difference is what happens next: we decide what to
-            point them at, get the controls in place, and change how the team actually works, because that is
+            use them on, get the controls in place, and change how the team actually works, because that is
             where the return is. We have spent twenty five years doing exactly that, inside financial services,
             insurance, health, higher education and professional services, and as consultants across many more.
           </p>
