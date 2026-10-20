@@ -35,8 +35,8 @@ export default function Hero() {
 
           <motion.p className="hero-paragraph" variants={heroItemVariants}>
             Most organisations have switched on AI tools, bought an automation platform or run a pilot or
-            two. Most have nothing measurable to show for it. The tools are not the problem. Nobody has decided where to point
-            them, what to fix first, or how to get a team to change the way it works. Noviform does the
+            two. Most have nothing measurable to show for it. The tools are not the problem. Nobody has decided what to use
+            them on, what to fix first, or how to get a team to change the way it works. Noviform does the
             AI work, from finding the use case to building and running it, and the harder part that most
             people skip: getting it used, controlled and measured.
           </motion.p>

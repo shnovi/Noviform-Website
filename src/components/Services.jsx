@@ -106,7 +106,7 @@ export default function Services() {
 
         <div className="reason-map reveal-on-scroll" aria-label="Which preset answers which reason">
           <button type="button" className="reason-key" onClick={() => pressPreset(0)}>
-            <span className="reason-label">Reason 01 &middot; where to point it</span>
+            <span className="reason-label">Reason 01 &middot; what to use it on</span>
             <span className="reason-answer">The AI MOT</span>
           </button>
           <button type="button" className="reason-key" onClick={() => pressPreset(3)}>
