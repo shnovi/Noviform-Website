@@ -44,7 +44,7 @@ const modules = [
     name: 'AI Assurance',
     time: '3 to 6 week set-up, then ongoing',
     line: 'Is this AI tool safe to switch on? Answered the same way every time, for every tool.',
-    walkaway: ['Every tool tested against seven areas, from data to law', 'A light route for low-risk tools, deep review for the few', 'A register and playbook your own team runs']
+    walkaway: ['Every tool tested against seven areas, from data to law', 'A light route for low-risk tools, deep review for the few', 'A living register your own team runs: what was approved, on what conditions, and who overrode what']
   },
   {
     id: 'build',
