@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: 'How do we know an AI tool is safe to switch on?',
-    a: 'That is exactly what our AI Assurance service answers. Every tool is tested against seven areas, from the data it touches to the law that applies, with a light route for low-risk tools and a deep review for the few that need it. Your own team runs it after handover, with the register, playbook and templates yours to keep.'
+    a: 'That is exactly what our AI Assurance service answers. Every tool is tested against seven areas, from the data it touches to the law that applies, with a light route for low-risk tools and a deep review for the few that need it. Your own team runs it after handover, with the register, playbook and templates yours to keep. The register keeps the record a board, an auditor or a regulator will ask for: what was approved, on what conditions, and who intervened.'
   },
   {
     q: 'Do you work in regulated or financial services?',
